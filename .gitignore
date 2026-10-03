@@ -67,3 +67,5 @@ tmp/
 release/
 
 .claude/
+
+.DS_Store
