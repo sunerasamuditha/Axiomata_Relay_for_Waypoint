@@ -35,7 +35,7 @@ jobs:
           --health-cmd "pg_isready -U relay -d relay"
           --health-interval 2s --health-timeout 3s --health-retries 30
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v5
         with:
@@ -92,7 +92,7 @@ jobs:
       E2E_BASE_URL: http://localhost:8000
       HEARTBEAT_DARK_S: "15" # a van shows "No signal" after 15 s instead of 45 s: a faster run
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v6
         with:
           enable-cache: true
@@ -131,7 +131,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: docker compose up (exactly what a judge runs)
         run: docker compose up -d --build --wait --wait-timeout 300
       - run: curl -fsS localhost:8080/api/health
