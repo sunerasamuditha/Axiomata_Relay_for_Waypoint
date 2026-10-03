@@ -1,0 +1,15 @@
+# Prettier formats the web app and the e2e suite (run from the repo root: pnpm format).
+node_modules/
+dist/
+dev-dist/
+coverage/
+playwright-report/
+test-results/
+blob-report/
+*.tsbuildinfo
+pnpm-lock.yaml
+apps/web/public/
+# The dispatcher desk is a port of the approved HTML prototype; it keeps the prototype's own
+# layout so the two can be diffed side by side during fidelity reviews.
+apps/web/src/roles/dispatch/engine/
+apps/web/src/roles/dispatch/dispatch.css

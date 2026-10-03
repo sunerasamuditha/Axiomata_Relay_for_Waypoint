@@ -1,0 +1,75 @@
+# Deploys to Cloud Run on a version tag (v*) or by hand (Actions → Deploy → Run workflow).
+# Authenticates with Workload Identity Federation: no keys in GitHub. One-time setup:
+#   GH_REPO=<owner>/TeamName_Relay ./infra/gcp/github-wif.sh     (docs/DEPLOY_GCP.md §8)
+name: Deploy
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SERVICE: ${{ vars.GCP_SERVICE || 'relay' }}
+      REGION: ${{ vars.GCP_REGION }}
+      IMAGE: ${{ vars.GCP_REGION }}-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/relay/relay:${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOYER_SA }}
+      - uses: google-github-actions/setup-gcloud@v2
+
+      # The trained models are not in git (they come from the private training data). If you
+      # uploaded them once (gcloud storage cp packages/ml/models/* gs://BUCKET/models/), set the
+      # GCP_MODELS_BUCKET variable and they are baked into the image; otherwise the heuristic is used.
+      - name: Fetch the trained models
+        if: vars.GCP_MODELS_BUCKET != ''
+        run: gcloud storage cp "gs://${{ vars.GCP_MODELS_BUCKET }}/models/*" packages/ml/models/
+
+      - run: gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ env.IMAGE }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Deploy the new revision
+        run: |
+          gcloud run deploy "$SERVICE" \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --image "$IMAGE" \
+            --region "$REGION" \
+            --service-account "${{ vars.GCP_RUNTIME_SA }}" \
+            --add-cloudsql-instances "${{ vars.GCP_SQL_CONN }}" \
+            --set-secrets "DATABASE_URL=DATABASE_URL:latest,SECRET_KEY=SECRET_KEY:latest" \
+            --set-env-vars "ENV=production,COOKIE_SECURE=true,GIT_SHA=${GITHUB_SHA::7}" \
+            --allow-unauthenticated \
+            --cpu 2 --memory 2Gi --concurrency 40 \
+            --min-instances 1 --max-instances 3 \
+            --timeout 3600 --execution-environment gen2 \
+            --labels "app=relay,commit=${GITHUB_SHA::7}"
+
+      - name: Health check
+        run: |
+          URL="$(gcloud run services describe "$SERVICE" --project "${{ vars.GCP_PROJECT_ID }}" --region "$REGION" --format='value(status.url)')"
+          echo "### Deployed $URL" >> "$GITHUB_STEP_SUMMARY"
+          for i in $(seq 1 20); do curl -fsS "$URL/api/health" && exit 0; sleep 3; done
+          exit 1

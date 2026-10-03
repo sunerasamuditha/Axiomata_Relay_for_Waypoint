@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------------------------------------
+# Competition data: the dataset terms forbid publishing it. Only the six small reference files in
+# data/reference/ are committed (the seed needs them). Everything else stays on your machine.
+# ---------------------------------------------------------------------------------------------
+# data/private/
+# data/**/*.csv
+!data/reference/*.csv
+submission_*.csv
+
+# Trained models are built from the private training data: kept out of git, but shipped in the
+# Docker image and the Cloud Run deployment (see .dockerignore and .gcloudignore).
+packages/ml/models/*
+!packages/ml/models/.gitkeep
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+infra/gcp/env.sh
+*.pem
+*.key
+*-sa.json
+credentials*.json
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+
+# Node / web
+node_modules/
+apps/web/dist/
+apps/web/dev-dist/
+*.tsbuildinfo
+.vite/
+.pnpm-store/
+
+# Playwright
+e2e/test-results/
+e2e/playwright-report/
+e2e/blob-report/
+e2e/.auth/
+
+# Editors and OS
+.DS_Store
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# Claude Code: personal settings stay local, shared commands and settings are committed
+.claude/settings.local.json
+
+# Logs and scratch
+*.log
+tmp/
+release/
+
+.claude/

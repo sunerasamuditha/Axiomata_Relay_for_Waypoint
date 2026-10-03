@@ -1,0 +1,150 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  DATABASE_URL: postgresql+psycopg://relay:relay@localhost:5432/relay
+  SECRET_KEY: ci-only-secret-0123456789abcdef0123456789abcdef
+  COOKIE_SECURE: "false"
+
+jobs:
+  python:
+    name: Python · lint, tests, engine check
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: relay
+          POSTGRES_PASSWORD: relay
+          POSTGRES_DB: relay
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U relay -d relay"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - name: Install
+        run: uv sync --frozen
+      - name: Ruff
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+      - name: Pytest (engine, ML, API flows)
+        run: uv run pytest
+      - name: Plan the demo day under every policy and validate it (checker port)
+        run: uv run python -m relay_api.check_plan
+
+  web:
+    name: Web · types, lint, format, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm format:check
+      - run: pnpm build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-dist
+          path: apps/web/dist
+          retention-days: 3
+
+  e2e:
+    name: E2E · four-role walkthrough
+    needs: [python, web]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: relay
+          POSTGRES_PASSWORD: relay
+          POSTGRES_DB: relay
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U relay -d relay"
+          --health-interval 2s --health-timeout 3s --health-retries 30
+    env:
+      E2E_BASE_URL: http://localhost:8000
+      HEARTBEAT_DARK_S: "15" # a van shows "No signal" after 15 s instead of 45 s: a faster run
+    steps:
+      - uses: actions/checkout@v5
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: uv sync --frozen
+      - run: pnpm install --frozen-lockfile
+      - uses: actions/download-artifact@v4
+        with:
+          name: web-dist
+          path: apps/web/dist
+      - name: Start the API (it serves the built app on the same origin)
+        run: |
+          uv run alembic -c apps/api/alembic.ini upgrade head
+          uv run python -m relay_api.seed
+          nohup uv run uvicorn relay_api.main:app --port 8000 > api.log 2>&1 &
+          for i in $(seq 1 60); do curl -fsS localhost:8000/api/health && exit 0; sleep 1; done
+          cat api.log; exit 1
+      - run: pnpm --filter @relay/e2e exec playwright install --with-deps chromium
+      - run: pnpm e2e
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            e2e/playwright-report
+            e2e/test-results
+            api.log
+          retention-days: 7
+
+  compose:
+    name: Docker Compose · fresh-clone check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - name: docker compose up (exactly what a judge runs)
+        run: docker compose up -d --build --wait --wait-timeout 300
+      - run: curl -fsS localhost:8080/api/health
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @relay/e2e exec playwright install --with-deps chromium
+      - name: Smoke tests against the container
+        run: pnpm --filter @relay/e2e test:smoke
+        env:
+          E2E_BASE_URL: http://localhost:8080
+      - if: always()
+        run: docker compose logs --no-color app | tail -200
