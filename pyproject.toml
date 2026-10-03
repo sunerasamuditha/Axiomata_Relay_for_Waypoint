@@ -1,0 +1,38 @@
+[project]
+name = "teamname-relay"
+version = "1.0.0"
+description = "Relay for Waypoint: one plan, four faces (Tech-Triathlon 2026 hackathon monorepo)"
+requires-python = ">=3.11,<3.14"
+dependencies = ["relay-api", "relay-engine", "relay-ml[train]"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+relay-api = { workspace = true }
+relay-engine = { workspace = true }
+relay-ml = { workspace = true }
+
+[tool.uv.workspace]
+members = ["apps/api", "packages/engine", "packages/ml"]
+
+[dependency-groups]
+dev = [
+  "pytest>=8.2",
+  "httpx>=0.27",
+  "ruff>=0.6",
+]
+
+[tool.ruff]
+line-length = 140
+target-version = "py311"
+extend-exclude = ["apps/web", "e2e", "node_modules"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["E501", "B008", "SIM108"]
+
+[tool.pytest.ini_options]
+testpaths = ["packages/engine/tests", "packages/ml/tests", "apps/api/tests"]
+addopts = "-q"
+filterwarnings = ["ignore:Using .httpx. with .starlette.testclient. is deprecated"]

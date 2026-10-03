@@ -1,0 +1,20 @@
+{
+  "name": "teamname-relay",
+  "private": true,
+  "packageManager": "pnpm@10.18.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @relay/web dev",
+    "build": "pnpm --filter @relay/web build",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "pnpm --filter @relay/web lint",
+    "format": "prettier --write apps/web e2e",
+    "format:check": "prettier --check apps/web e2e",
+    "e2e": "pnpm --filter @relay/e2e test"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9"
+  }
+}

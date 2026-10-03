@@ -1,0 +1,28 @@
+[project]
+name = "relay-api"
+version = "1.0.0"
+description = "Relay API: FastAPI service for dispatch, dock, driver and store"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.30",
+  "sqlalchemy>=2.0.30",
+  "psycopg[binary]>=3.2",
+  "alembic>=1.13",
+  "pydantic>=2.7",
+  "pydantic-settings>=2.3",
+  "pyjwt>=2.8",
+  "relay-engine",
+  "relay-ml",
+]
+
+[tool.uv.sources]
+relay-engine = { workspace = true }
+relay-ml = { workspace = true }
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["relay_api"]

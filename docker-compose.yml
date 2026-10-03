@@ -1,0 +1,47 @@
+# The whole stack on one machine: `docker compose up --build`, then open http://localhost:8080
+# Works without a .env file; `cp .env.example .env` only to change ports or the secret.
+name: relay
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: relay
+      POSTGRES_PASSWORD: relay
+      POSTGRES_DB: relay
+    ports:
+      # 5433 on your machine, so a Postgres you already run on 5432 does not clash
+      - "${DB_PORT_HOST:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U relay -d relay"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  app:
+    build: .
+    image: relay-app:local
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://relay:relay@db:5432/relay
+      SECRET_KEY: ${SECRET_KEY:-dev-only-secret-change-me-0123456789abcdef}
+      COOKIE_SECURE: "false"
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      SOLVER_TIME_LIMIT_S: ${SOLVER_TIME_LIMIT_S:-5}
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://localhost:8080/api/health', timeout=3).status == 200 else 1)"]
+      interval: 10s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  pgdata:

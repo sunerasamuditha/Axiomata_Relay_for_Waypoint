@@ -1,0 +1,473 @@
+{
+  "method": "seasonal decomposition (level x weekly seasonality x festival uplift), Task 2A demand rules",
+  "history_end": "2026-03-28",
+  "backtest": {
+    "weeks": "2025-W14..W23",
+    "mape_pct": 27.4,
+    "mape_pct_by_brand": {
+      "Fresh": 6.8,
+      "Style": 19.5,
+      "Tech": 55.9
+    }
+  },
+  "reefer_m3_per_vehicle_day": {
+    "Kandy": 6.23,
+    "Peliyagoda": 7.71
+  },
+  "weeks": [
+    {
+      "week_start": "2026-10-05",
+      "iso_year": 2026,
+      "iso_week": 41,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 523.9,
+          "chilled_m3": 189.0
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 77.9,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 31.8,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 979.6,
+          "chilled_m3": 356.2
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 135.3,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 41.3,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-10-12",
+      "iso_year": 2026,
+      "iso_week": 42,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 519.5,
+          "chilled_m3": 187.4
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 78.3,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 31.6,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 978.3,
+          "chilled_m3": 355.8
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 137.2,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 35.7,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-10-19",
+      "iso_year": 2026,
+      "iso_week": 43,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 527.1,
+          "chilled_m3": 190.1
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 80.0,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 28.8,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 1004.1,
+          "chilled_m3": 365.2
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 139.2,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 28.6,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-10-26",
+      "iso_year": 2026,
+      "iso_week": 44,
+      "operating_days": 6,
+      "festivals": [
+        "deepavali"
+      ],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 593.4,
+          "chilled_m3": 214.0
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 93.8,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 25.2,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 1103.9,
+          "chilled_m3": 401.5
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 161.6,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 37.3,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-11-02",
+      "iso_year": 2026,
+      "iso_week": 45,
+      "operating_days": 6,
+      "festivals": [
+        "deepavali"
+      ],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 584.1,
+          "chilled_m3": 210.7
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 90.6,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 22.1,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 1084.3,
+          "chilled_m3": 394.3
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 161.4,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 39.7,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-11-09",
+      "iso_year": 2026,
+      "iso_week": 46,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 515.8,
+          "chilled_m3": 186.1
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 75.7,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 19.6,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 947.7,
+          "chilled_m3": 344.6
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 137.7,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 35.4,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-11-16",
+      "iso_year": 2026,
+      "iso_week": 47,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 523.6,
+          "chilled_m3": 188.9
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 73.9,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 23.9,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 983.8,
+          "chilled_m3": 357.8
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 139.6,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 38.7,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-11-23",
+      "iso_year": 2026,
+      "iso_week": 48,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 534.0,
+          "chilled_m3": 192.6
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 78.1,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 21.9,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 991.8,
+          "chilled_m3": 360.7
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 139.4,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 40.0,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-11-30",
+      "iso_year": 2026,
+      "iso_week": 49,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 538.9,
+          "chilled_m3": 194.4
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 79.9,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 21.4,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 1005.6,
+          "chilled_m3": 365.7
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 141.5,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 43.1,
+          "chilled_m3": 0.0
+        }
+      }
+    },
+    {
+      "week_start": "2026-12-07",
+      "iso_year": 2026,
+      "iso_week": 50,
+      "operating_days": 6,
+      "festivals": [],
+      "groups": {
+        "Kandy|Fresh": {
+          "depot": "Kandy",
+          "brand": "Fresh",
+          "total_m3": 529.1,
+          "chilled_m3": 190.8
+        },
+        "Kandy|Style": {
+          "depot": "Kandy",
+          "brand": "Style",
+          "total_m3": 83.1,
+          "chilled_m3": 0.0
+        },
+        "Kandy|Tech": {
+          "depot": "Kandy",
+          "brand": "Tech",
+          "total_m3": 14.9,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Fresh": {
+          "depot": "Peliyagoda",
+          "brand": "Fresh",
+          "total_m3": 974.1,
+          "chilled_m3": 354.3
+        },
+        "Peliyagoda|Style": {
+          "depot": "Peliyagoda",
+          "brand": "Style",
+          "total_m3": 141.2,
+          "chilled_m3": 0.0
+        },
+        "Peliyagoda|Tech": {
+          "depot": "Peliyagoda",
+          "brand": "Tech",
+          "total_m3": 44.5,
+          "chilled_m3": 0.0
+        }
+      }
+    }
+  ]
+}

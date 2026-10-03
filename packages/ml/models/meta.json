@@ -1,0 +1,91 @@
+{
+  "features": [
+    "brand",
+    "district",
+    "dock_type",
+    "parking",
+    "temp",
+    "vehicle_type",
+    "vehicle_temp",
+    "units",
+    "weight_kg",
+    "volume_m3",
+    "seq",
+    "n_stops",
+    "planned_arrival",
+    "window_open",
+    "window_close",
+    "slack_close",
+    "slack_open",
+    "leg_km",
+    "leg_min",
+    "cum_planned_min",
+    "dow",
+    "monsoon",
+    "speed_index",
+    "disruption_index",
+    "allowance"
+  ],
+  "categories": {
+    "brand": [
+      "Fresh",
+      "Style",
+      "Tech"
+    ],
+    "district": [
+      "Colombo",
+      "Gampaha",
+      "Kalutara",
+      "Galle",
+      "Matara",
+      "Kurunegala",
+      "Puttalam",
+      "Kandy",
+      "Matale",
+      "Nuwara Eliya",
+      "Badulla",
+      "Kegalle"
+    ],
+    "dock_type": [
+      "rear_dock",
+      "street",
+      "mall_bay"
+    ],
+    "parking": [
+      "normal",
+      "van_only",
+      "mall_dock"
+    ],
+    "temp": [
+      "ambient",
+      "chilled"
+    ],
+    "vehicle_type": [
+      "truck",
+      "van"
+    ],
+    "vehicle_temp": [
+      "ambient",
+      "reefer"
+    ]
+  },
+  "metrics": {
+    "service_mae": 4.728,
+    "service_mae_allowance_baseline": 7.296,
+    "late_logloss": 0.1657,
+    "late_logloss_prior_baseline": 0.461,
+    "late_auc": 0.9685,
+    "valid_rows": 12563,
+    "best_iterations": {
+      "service": 754,
+      "late": 224
+    }
+  },
+  "rows": 91894,
+  "split": "2025-11-01",
+  "trained_at": "2026-10-01T06:47:13+00:00",
+  "labels": {
+    "service_min": "leave_outlet_time - max(arrival_time, window_open_time)",
+    "late": "arrival_time > window_close_time"
+  }
+}

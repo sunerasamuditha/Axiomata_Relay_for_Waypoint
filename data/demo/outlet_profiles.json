@@ -1,0 +1,3845 @@
+{
+ "since": "2025-06-01",
+ "outlets": {
+  "OUT001": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 11.0,
+    "units_med": 12.0,
+    "units_q75": 15.0,
+    "kg_per_unit": 6.789,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH037",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 13.0,
+    "units_med": 16.0,
+    "units_q75": 19.0,
+    "kg_per_unit": 6.693,
+    "m3_per_unit": 0.0364,
+    "usual_vehicle": "VEH035",
+    "orders": 147
+   }
+  },
+  "OUT002": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 16.0,
+    "units_med": 18.0,
+    "units_q75": 20.0,
+    "kg_per_unit": 6.967,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH037",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 13.0,
+    "units_med": 16.0,
+    "units_q75": 18.0,
+    "kg_per_unit": 6.955,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH035",
+    "orders": 147
+   }
+  },
+  "OUT003": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 13.0,
+    "units_med": 16.0,
+    "units_q75": 19.0,
+    "kg_per_unit": 6.983,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH037",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 10.0,
+    "units_med": 12.0,
+    "units_q75": 13.5,
+    "kg_per_unit": 6.85,
+    "m3_per_unit": 0.0364,
+    "usual_vehicle": "VEH035",
+    "orders": 147
+   }
+  },
+  "OUT004": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 28.0,
+    "units_med": 34.0,
+    "units_q75": 40.0,
+    "kg_per_unit": 6.849,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH012",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 17.0,
+    "units_med": 20.0,
+    "units_q75": 24.0,
+    "kg_per_unit": 6.924,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT005": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 62.0,
+    "units_med": 72.0,
+    "units_q75": 85.0,
+    "kg_per_unit": 6.717,
+    "m3_per_unit": 0.0363,
+    "usual_vehicle": "VEH034",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 54.0,
+    "units_med": 63.0,
+    "units_q75": 73.5,
+    "kg_per_unit": 6.797,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT006": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 65.0,
+    "units_med": 77.0,
+    "units_q75": 88.0,
+    "kg_per_unit": 6.956,
+    "m3_per_unit": 0.0377,
+    "usual_vehicle": "VEH034",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 61.5,
+    "units_med": 69.0,
+    "units_q75": 85.5,
+    "kg_per_unit": 6.97,
+    "m3_per_unit": 0.0375,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT007": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 89.0,
+    "units_med": 102.0,
+    "units_q75": 121.0,
+    "kg_per_unit": 6.685,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH034",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 62.0,
+    "units_med": 74.0,
+    "units_q75": 86.0,
+    "kg_per_unit": 6.825,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH006",
+    "orders": 148
+   }
+  },
+  "OUT008": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 46.0,
+    "units_med": 54.0,
+    "units_q75": 63.0,
+    "kg_per_unit": 6.878,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH012",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 28.0,
+    "units_med": 33.0,
+    "units_q75": 37.0,
+    "kg_per_unit": 6.672,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT009": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 37.0,
+    "units_med": 44.0,
+    "units_q75": 52.0,
+    "kg_per_unit": 6.729,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH012",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 41.0,
+    "units_q75": 47.0,
+    "kg_per_unit": 6.878,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT010": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 43.0,
+    "units_med": 51.0,
+    "units_q75": 61.0,
+    "kg_per_unit": 6.858,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH012",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 37.0,
+    "units_med": 42.0,
+    "units_q75": 50.0,
+    "kg_per_unit": 6.757,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT011": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 47.0,
+    "units_med": 54.0,
+    "units_q75": 64.0,
+    "kg_per_unit": 6.76,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH034",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 37.0,
+    "units_q75": 43.0,
+    "kg_per_unit": 6.769,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT012": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 41.0,
+    "units_med": 49.0,
+    "units_q75": 56.0,
+    "kg_per_unit": 6.842,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH012",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 31.0,
+    "units_med": 37.5,
+    "units_q75": 44.0,
+    "kg_per_unit": 6.738,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH006",
+    "orders": 148
+   }
+  },
+  "OUT013": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 98.0,
+    "units_med": 112.0,
+    "units_q75": 130.0,
+    "kg_per_unit": 6.789,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH034",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 61.0,
+    "units_med": 70.0,
+    "units_q75": 82.5,
+    "kg_per_unit": 6.93,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT014": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 34.0,
+    "units_med": 40.0,
+    "units_q75": 47.0,
+    "kg_per_unit": 6.754,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH012",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 42.0,
+    "units_med": 48.0,
+    "units_q75": 56.5,
+    "kg_per_unit": 6.788,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH006",
+    "orders": 147
+   }
+  },
+  "OUT015": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 23.0,
+    "units_med": 26.0,
+    "units_q75": 33.0,
+    "kg_per_unit": 14.884,
+    "m3_per_unit": 0.2383,
+    "usual_vehicle": "VEH016",
+    "orders": 36
+   }
+  },
+  "OUT016": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 23.75,
+    "units_med": 29.5,
+    "units_q75": 37.25,
+    "kg_per_unit": 15.124,
+    "m3_per_unit": 0.2378,
+    "usual_vehicle": "VEH016",
+    "orders": 36
+   }
+  },
+  "OUT017": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 45.75,
+    "units_med": 52.5,
+    "units_q75": 60.25,
+    "kg_per_unit": 14.642,
+    "m3_per_unit": 0.2355,
+    "usual_vehicle": "VEH008",
+    "orders": 36
+   }
+  },
+  "OUT018": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 29.0,
+    "units_med": 33.0,
+    "units_q75": 40.75,
+    "kg_per_unit": 15.153,
+    "m3_per_unit": 0.2469,
+    "usual_vehicle": "VEH015",
+    "orders": 36
+   }
+  },
+  "OUT019": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 22.75,
+    "units_med": 26.5,
+    "units_q75": 33.0,
+    "kg_per_unit": 14.779,
+    "m3_per_unit": 0.2315,
+    "usual_vehicle": "VEH016",
+    "orders": 36
+   }
+  },
+  "OUT020": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 37.5,
+    "units_med": 46.5,
+    "units_q75": 55.0,
+    "kg_per_unit": 15.143,
+    "m3_per_unit": 0.236,
+    "usual_vehicle": "VEH015",
+    "orders": 36
+   }
+  },
+  "OUT021": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.405,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.378,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 5.0,
+    "units_med": 6.0,
+    "units_q75": 8.0,
+    "kg_per_unit": 212.65,
+    "m3_per_unit": 0.7112,
+    "usual_vehicle": "VEH015",
+    "orders": 29
+   }
+  },
+  "OUT022": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.459,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.27,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 2.5,
+    "units_med": 3.0,
+    "units_q75": 5.0,
+    "kg_per_unit": 211.5,
+    "m3_per_unit": 0.7043,
+    "usual_vehicle": "VEH016",
+    "orders": 27
+   }
+  },
+  "OUT023": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.676,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.649,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 4.0,
+    "units_med": 5.0,
+    "units_q75": 6.0,
+    "kg_per_unit": 211.275,
+    "m3_per_unit": 0.6853,
+    "usual_vehicle": "VEH016",
+    "orders": 49
+   }
+  },
+  "OUT024": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.486,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.459,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 3.0,
+    "units_med": 3.0,
+    "units_q75": 4.0,
+    "kg_per_unit": 199.4,
+    "m3_per_unit": 0.6893,
+    "usual_vehicle": "VEH016",
+    "orders": 35
+   }
+  },
+  "OUT025": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 31.0,
+    "units_med": 36.0,
+    "units_q75": 43.0,
+    "kg_per_unit": 6.767,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH017",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 20.0,
+    "units_med": 23.0,
+    "units_q75": 26.0,
+    "kg_per_unit": 6.67,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH005",
+    "orders": 147
+   }
+  },
+  "OUT026": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 37.0,
+    "units_med": 44.0,
+    "units_q75": 51.0,
+    "kg_per_unit": 6.938,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH017",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 27.5,
+    "units_med": 32.0,
+    "units_q75": 37.5,
+    "kg_per_unit": 6.92,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH005",
+    "orders": 147
+   }
+  },
+  "OUT027": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 46.0,
+    "units_med": 53.0,
+    "units_q75": 63.0,
+    "kg_per_unit": 6.855,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 33.0,
+    "units_med": 38.0,
+    "units_q75": 44.0,
+    "kg_per_unit": 6.828,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH005",
+    "orders": 147
+   }
+  },
+  "OUT028": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 56.0,
+    "units_med": 67.0,
+    "units_q75": 77.0,
+    "kg_per_unit": 6.809,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 44.75,
+    "units_med": 53.5,
+    "units_q75": 61.25,
+    "kg_per_unit": 6.72,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH005",
+    "orders": 148
+   }
+  },
+  "OUT029": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 45.0,
+    "units_med": 52.0,
+    "units_q75": 60.0,
+    "kg_per_unit": 6.898,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 38.0,
+    "units_med": 42.5,
+    "units_q75": 50.0,
+    "kg_per_unit": 6.871,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH005",
+    "orders": 148
+   }
+  },
+  "OUT030": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 50.0,
+    "units_med": 58.0,
+    "units_q75": 69.0,
+    "kg_per_unit": 7.039,
+    "m3_per_unit": 0.0378,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 51.0,
+    "units_med": 59.0,
+    "units_q75": 68.0,
+    "kg_per_unit": 6.895,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH005",
+    "orders": 147
+   }
+  },
+  "OUT031": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 118.0,
+    "units_med": 137.0,
+    "units_q75": 165.0,
+    "kg_per_unit": 6.73,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 121.75,
+    "units_med": 139.5,
+    "units_q75": 161.0,
+    "kg_per_unit": 6.868,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH006",
+    "orders": 148
+   }
+  },
+  "OUT032": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 89.0,
+    "units_med": 103.0,
+    "units_q75": 119.0,
+    "kg_per_unit": 6.94,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 99.0,
+    "units_med": 115.5,
+    "units_q75": 138.25,
+    "kg_per_unit": 6.896,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH003",
+    "orders": 148
+   }
+  },
+  "OUT033": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 50.0,
+    "units_med": 59.0,
+    "units_q75": 70.0,
+    "kg_per_unit": 6.798,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 57.0,
+    "units_med": 67.0,
+    "units_q75": 75.0,
+    "kg_per_unit": 6.776,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH005",
+    "orders": 147
+   }
+  },
+  "OUT034": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 47.0,
+    "units_med": 55.0,
+    "units_q75": 65.0,
+    "kg_per_unit": 6.775,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH027",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 50.5,
+    "units_med": 59.0,
+    "units_q75": 73.0,
+    "kg_per_unit": 6.921,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH005",
+    "orders": 147
+   }
+  },
+  "OUT035": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 40.0,
+    "units_med": 47.0,
+    "units_q75": 53.0,
+    "kg_per_unit": 13.838,
+    "m3_per_unit": 0.2296,
+    "usual_vehicle": "VEH015",
+    "orders": 37
+   }
+  },
+  "OUT036": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 34.0,
+    "units_med": 39.0,
+    "units_q75": 49.0,
+    "kg_per_unit": 14.397,
+    "m3_per_unit": 0.2429,
+    "usual_vehicle": "VEH008",
+    "orders": 37
+   }
+  },
+  "OUT037": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 18.0,
+    "units_med": 21.0,
+    "units_q75": 26.0,
+    "kg_per_unit": 15.133,
+    "m3_per_unit": 0.2464,
+    "usual_vehicle": "VEH015",
+    "orders": 37
+   }
+  },
+  "OUT038": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.73,
+     "5": 0.649,
+     "6": 0.0
+    },
+    "units_q25": 6.0,
+    "units_med": 7.0,
+    "units_q75": 9.0,
+    "kg_per_unit": 220.971,
+    "m3_per_unit": 0.6969,
+    "usual_vehicle": "VEH015",
+    "orders": 51
+   }
+  },
+  "OUT039": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.378,
+     "5": 0.297,
+     "6": 0.0
+    },
+    "units_q25": 4.0,
+    "units_med": 5.0,
+    "units_q75": 6.0,
+    "kg_per_unit": 215.8,
+    "m3_per_unit": 0.7187,
+    "usual_vehicle": "VEH015",
+    "orders": 25
+   }
+  },
+  "OUT040": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 71.0,
+    "units_med": 81.0,
+    "units_q75": 99.0,
+    "kg_per_unit": 6.882,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 51.75,
+    "units_med": 58.0,
+    "units_q75": 68.0,
+    "kg_per_unit": 6.944,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH004",
+    "orders": 148
+   }
+  },
+  "OUT041": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 40.0,
+    "units_med": 47.0,
+    "units_q75": 57.0,
+    "kg_per_unit": 7.011,
+    "m3_per_unit": 0.0378,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 40.0,
+    "units_q75": 45.0,
+    "kg_per_unit": 6.872,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH004",
+    "orders": 147
+   }
+  },
+  "OUT042": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 111.0,
+    "units_med": 129.0,
+    "units_q75": 152.0,
+    "kg_per_unit": 6.787,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 82.5,
+    "units_med": 93.0,
+    "units_q75": 112.5,
+    "kg_per_unit": 6.8,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH004",
+    "orders": 147
+   }
+  },
+  "OUT043": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 26.0,
+    "units_med": 31.0,
+    "units_q75": 36.0,
+    "kg_per_unit": 6.974,
+    "m3_per_unit": 0.0381,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 28.0,
+    "units_med": 32.0,
+    "units_q75": 37.0,
+    "kg_per_unit": 6.657,
+    "m3_per_unit": 0.0363,
+    "usual_vehicle": "VEH004",
+    "orders": 147
+   }
+  },
+  "OUT044": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 43.0,
+    "units_med": 52.0,
+    "units_q75": 59.0,
+    "kg_per_unit": 6.739,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 25.75,
+    "units_med": 29.0,
+    "units_q75": 35.0,
+    "kg_per_unit": 6.931,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH004",
+    "orders": 148
+   }
+  },
+  "OUT045": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 30.0,
+    "units_med": 35.0,
+    "units_q75": 40.0,
+    "kg_per_unit": 6.813,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 37.0,
+    "units_q75": 43.0,
+    "kg_per_unit": 7.003,
+    "m3_per_unit": 0.0378,
+    "usual_vehicle": "VEH004",
+    "orders": 147
+   }
+  },
+  "OUT046": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 31.0,
+    "units_med": 37.0,
+    "units_q75": 43.0,
+    "kg_per_unit": 6.8,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH025",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 31.0,
+    "units_med": 36.0,
+    "units_q75": 42.0,
+    "kg_per_unit": 6.862,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH004",
+    "orders": 147
+   }
+  },
+  "OUT047": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 26.0,
+    "units_med": 32.0,
+    "units_q75": 36.0,
+    "kg_per_unit": 14.973,
+    "m3_per_unit": 0.2406,
+    "usual_vehicle": "VEH015",
+    "orders": 37
+   }
+  },
+  "OUT048": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 30.0,
+    "units_med": 35.0,
+    "units_q75": 45.0,
+    "kg_per_unit": 13.97,
+    "m3_per_unit": 0.2393,
+    "usual_vehicle": "VEH015",
+    "orders": 37
+   }
+  },
+  "OUT049": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.784,
+     "2": 0.514,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 3.0,
+    "units_med": 4.5,
+    "units_q75": 6.0,
+    "kg_per_unit": 225.375,
+    "m3_per_unit": 0.7583,
+    "usual_vehicle": "VEH008",
+    "orders": 48
+   }
+  },
+  "OUT050": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 45.0,
+    "units_med": 52.0,
+    "units_q75": 62.0,
+    "kg_per_unit": 6.678,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH018",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 47.5,
+    "units_med": 56.0,
+    "units_q75": 63.0,
+    "kg_per_unit": 6.938,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH003",
+    "orders": 147
+   }
+  },
+  "OUT051": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 25.0,
+    "units_med": 30.0,
+    "units_q75": 33.0,
+    "kg_per_unit": 6.903,
+    "m3_per_unit": 0.0375,
+    "usual_vehicle": "VEH018",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 15.0,
+    "units_med": 18.0,
+    "units_q75": 21.0,
+    "kg_per_unit": 6.906,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH003",
+    "orders": 147
+   }
+  },
+  "OUT052": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 60.0,
+    "units_med": 69.0,
+    "units_q75": 81.0,
+    "kg_per_unit": 6.923,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH018",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 44.0,
+    "units_med": 51.0,
+    "units_q75": 59.0,
+    "kg_per_unit": 6.718,
+    "m3_per_unit": 0.0364,
+    "usual_vehicle": "VEH003",
+    "orders": 147
+   }
+  },
+  "OUT053": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 22.0,
+    "units_med": 25.0,
+    "units_q75": 30.0,
+    "kg_per_unit": 6.732,
+    "m3_per_unit": 0.0364,
+    "usual_vehicle": "VEH018",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 22.0,
+    "units_med": 26.0,
+    "units_q75": 29.0,
+    "kg_per_unit": 7.048,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH003",
+    "orders": 147
+   }
+  },
+  "OUT054": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 85.0,
+    "units_med": 98.0,
+    "units_q75": 116.0,
+    "kg_per_unit": 6.87,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH018",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 84.5,
+    "units_med": 100.0,
+    "units_q75": 114.0,
+    "kg_per_unit": 6.844,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH003",
+    "orders": 147
+   }
+  },
+  "OUT055": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 46.0,
+    "units_med": 54.0,
+    "units_q75": 63.0,
+    "kg_per_unit": 6.668,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH018",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 36.0,
+    "units_med": 40.0,
+    "units_q75": 46.5,
+    "kg_per_unit": 6.872,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH003",
+    "orders": 147
+   }
+  },
+  "OUT056": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 28.0,
+    "units_med": 34.0,
+    "units_q75": 39.0,
+    "kg_per_unit": 15.233,
+    "m3_per_unit": 0.2438,
+    "usual_vehicle": "VEH018",
+    "orders": 37
+   }
+  },
+  "OUT057": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 49.0,
+    "units_med": 55.0,
+    "units_q75": 65.0,
+    "kg_per_unit": 14.709,
+    "m3_per_unit": 0.2384,
+    "usual_vehicle": "VEH018",
+    "orders": 37
+   }
+  },
+  "OUT058": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.649,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.378,
+     "6": 0.0
+    },
+    "units_q25": 2.0,
+    "units_med": 2.0,
+    "units_q75": 3.0,
+    "kg_per_unit": 214.071,
+    "m3_per_unit": 0.69,
+    "usual_vehicle": "VEH008",
+    "orders": 38
+   }
+  },
+  "OUT059": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 50.0,
+    "units_med": 59.0,
+    "units_q75": 67.0,
+    "kg_per_unit": 6.685,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH015",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 47.0,
+    "units_med": 54.0,
+    "units_q75": 64.0,
+    "kg_per_unit": 6.829,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH002",
+    "orders": 147
+   }
+  },
+  "OUT060": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 42.0,
+    "units_med": 49.0,
+    "units_q75": 59.0,
+    "kg_per_unit": 6.853,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH015",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 45.0,
+    "units_med": 52.0,
+    "units_q75": 63.0,
+    "kg_per_unit": 7.014,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH002",
+    "orders": 147
+   }
+  },
+  "OUT061": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 46.0,
+    "units_med": 55.0,
+    "units_q75": 64.0,
+    "kg_per_unit": 6.84,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH015",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 29.0,
+    "units_med": 33.0,
+    "units_q75": 37.0,
+    "kg_per_unit": 6.904,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH002",
+    "orders": 147
+   }
+  },
+  "OUT062": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 58.0,
+    "units_med": 67.0,
+    "units_q75": 78.0,
+    "kg_per_unit": 6.686,
+    "m3_per_unit": 0.0362,
+    "usual_vehicle": "VEH015",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 40.0,
+    "units_med": 46.0,
+    "units_q75": 56.0,
+    "kg_per_unit": 6.837,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH002",
+    "orders": 147
+   }
+  },
+  "OUT063": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 28.0,
+    "units_med": 40.0,
+    "units_q75": 46.0,
+    "kg_per_unit": 15.568,
+    "m3_per_unit": 0.2446,
+    "usual_vehicle": "VEH008",
+    "orders": 37
+   }
+  },
+  "OUT064": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.486,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.405,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 2.0,
+    "units_med": 2.0,
+    "units_q75": 3.0,
+    "kg_per_unit": 230.4,
+    "m3_per_unit": 0.7124,
+    "usual_vehicle": "VEH008",
+    "orders": 33
+   }
+  },
+  "OUT065": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 61.0,
+    "units_med": 70.0,
+    "units_q75": 83.0,
+    "kg_per_unit": 6.818,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH016",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 71.5,
+    "units_med": 84.0,
+    "units_q75": 99.5,
+    "kg_per_unit": 6.783,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH001",
+    "orders": 147
+   }
+  },
+  "OUT066": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 45.0,
+    "units_med": 52.0,
+    "units_q75": 61.0,
+    "kg_per_unit": 6.79,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH016",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 43.0,
+    "units_med": 49.0,
+    "units_q75": 56.0,
+    "kg_per_unit": 6.894,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH001",
+    "orders": 147
+   }
+  },
+  "OUT067": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 43.0,
+    "units_med": 50.0,
+    "units_q75": 56.0,
+    "kg_per_unit": 6.9,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH016",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 43.0,
+    "units_med": 51.0,
+    "units_q75": 62.0,
+    "kg_per_unit": 6.911,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH001",
+    "orders": 147
+   }
+  },
+  "OUT068": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 46.0,
+    "units_med": 53.0,
+    "units_q75": 61.0,
+    "kg_per_unit": 6.746,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH016",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 40.0,
+    "units_q75": 47.0,
+    "kg_per_unit": 6.884,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH001",
+    "orders": 148
+   }
+  },
+  "OUT069": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 48.0,
+    "units_med": 56.0,
+    "units_q75": 65.0,
+    "kg_per_unit": 6.998,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH016",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 30.0,
+    "units_med": 36.0,
+    "units_q75": 42.25,
+    "kg_per_unit": 6.893,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH001",
+    "orders": 148
+   }
+  },
+  "OUT070": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 25.0,
+    "units_med": 31.0,
+    "units_q75": 37.0,
+    "kg_per_unit": 15.296,
+    "m3_per_unit": 0.2476,
+    "usual_vehicle": "VEH015",
+    "orders": 37
+   }
+  },
+  "OUT071": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 37.0,
+    "units_q75": 44.0,
+    "kg_per_unit": 15.119,
+    "m3_per_unit": 0.24,
+    "usual_vehicle": "VEH015",
+    "orders": 37
+   }
+  },
+  "OUT072": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.595,
+     "5": 0.622,
+     "6": 0.0
+    },
+    "units_q25": 3.0,
+    "units_med": 3.0,
+    "units_q75": 4.0,
+    "kg_per_unit": 212.15,
+    "m3_per_unit": 0.7183,
+    "usual_vehicle": "VEH008",
+    "orders": 45
+   }
+  },
+  "OUT073": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 45.0,
+    "units_med": 50.0,
+    "units_q75": 58.0,
+    "kg_per_unit": 7.05,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH008",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 42.0,
+    "units_med": 49.0,
+    "units_q75": 58.0,
+    "kg_per_unit": 6.989,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH007",
+    "orders": 147
+   }
+  },
+  "OUT074": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 49.0,
+    "units_med": 56.0,
+    "units_q75": 66.0,
+    "kg_per_unit": 6.899,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH008",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 46.5,
+    "units_med": 55.0,
+    "units_q75": 66.0,
+    "kg_per_unit": 6.898,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH007",
+    "orders": 147
+   }
+  },
+  "OUT075": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 25.0,
+    "units_med": 29.0,
+    "units_q75": 33.0,
+    "kg_per_unit": 6.821,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH008",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 27.0,
+    "units_med": 30.0,
+    "units_q75": 35.25,
+    "kg_per_unit": 6.916,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH007",
+    "orders": 148
+   }
+  },
+  "OUT076": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 22.0,
+    "units_med": 26.0,
+    "units_q75": 30.0,
+    "kg_per_unit": 6.724,
+    "m3_per_unit": 0.0362,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 18.0,
+    "units_med": 22.0,
+    "units_q75": 25.0,
+    "kg_per_unit": 6.805,
+    "m3_per_unit": 0.0359,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT077": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 13.0,
+    "units_med": 15.0,
+    "units_q75": 17.0,
+    "kg_per_unit": 6.859,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 12.0,
+    "units_med": 14.0,
+    "units_q75": 16.0,
+    "kg_per_unit": 6.758,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT078": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 21.0,
+    "units_med": 24.0,
+    "units_q75": 28.0,
+    "kg_per_unit": 6.882,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 21.0,
+    "units_med": 25.0,
+    "units_q75": 29.0,
+    "kg_per_unit": 6.883,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT079": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 15.0,
+    "units_med": 18.0,
+    "units_q75": 20.0,
+    "kg_per_unit": 6.737,
+    "m3_per_unit": 0.0361,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 12.0,
+    "units_med": 15.0,
+    "units_q75": 17.0,
+    "kg_per_unit": 6.844,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT080": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 15.0,
+    "units_med": 18.0,
+    "units_q75": 21.0,
+    "kg_per_unit": 6.947,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 15.0,
+    "units_med": 17.0,
+    "units_q75": 21.5,
+    "kg_per_unit": 6.7,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT081": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 19.0,
+    "units_med": 23.0,
+    "units_q75": 27.0,
+    "kg_per_unit": 6.713,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 21.0,
+    "units_med": 27.0,
+    "units_q75": 31.0,
+    "kg_per_unit": 6.805,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT082": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 18.0,
+    "units_med": 21.0,
+    "units_q75": 25.0,
+    "kg_per_unit": 6.742,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 11.0,
+    "units_med": 13.0,
+    "units_q75": 15.0,
+    "kg_per_unit": 6.792,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH057",
+    "orders": 147
+   }
+  },
+  "OUT083": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 12.0,
+    "units_med": 14.0,
+    "units_q75": 17.0,
+    "kg_per_unit": 6.993,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH059",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 14.75,
+    "units_med": 18.0,
+    "units_q75": 22.0,
+    "kg_per_unit": 6.838,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH057",
+    "orders": 148
+   }
+  },
+  "OUT084": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 38.0,
+    "units_q75": 43.0,
+    "kg_per_unit": 6.78,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 30.0,
+    "units_med": 36.0,
+    "units_q75": 42.0,
+    "kg_per_unit": 7.076,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH042",
+    "orders": 147
+   }
+  },
+  "OUT085": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 47.0,
+    "units_med": 55.0,
+    "units_q75": 64.0,
+    "kg_per_unit": 6.739,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 54.0,
+    "units_med": 62.5,
+    "units_q75": 72.0,
+    "kg_per_unit": 7.046,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH043",
+    "orders": 148
+   }
+  },
+  "OUT086": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 40.0,
+    "units_q75": 49.0,
+    "kg_per_unit": 6.872,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 41.0,
+    "units_med": 47.0,
+    "units_q75": 55.0,
+    "kg_per_unit": 6.863,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH043",
+    "orders": 148
+   }
+  },
+  "OUT087": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 42.0,
+    "units_med": 48.0,
+    "units_q75": 57.0,
+    "kg_per_unit": 6.824,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 26.0,
+    "units_med": 29.0,
+    "units_q75": 35.0,
+    "kg_per_unit": 6.873,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH043",
+    "orders": 147
+   }
+  },
+  "OUT088": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 9.0,
+    "units_med": 10.5,
+    "units_q75": 13.0,
+    "kg_per_unit": 14.147,
+    "m3_per_unit": 0.2318,
+    "usual_vehicle": "VEH059",
+    "orders": 36
+   }
+  },
+  "OUT089": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 28.0,
+    "units_med": 36.5,
+    "units_q75": 40.75,
+    "kg_per_unit": 14.467,
+    "m3_per_unit": 0.242,
+    "usual_vehicle": "VEH046",
+    "orders": 36
+   }
+  },
+  "OUT090": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 26.0,
+    "units_med": 30.0,
+    "units_q75": 35.0,
+    "kg_per_unit": 15.257,
+    "m3_per_unit": 0.2367,
+    "usual_vehicle": "VEH056",
+    "orders": 36
+   }
+  },
+  "OUT091": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 26.0,
+    "units_med": 31.0,
+    "units_q75": 38.0,
+    "kg_per_unit": 14.378,
+    "m3_per_unit": 0.2371,
+    "usual_vehicle": "VEH046",
+    "orders": 36
+   }
+  },
+  "OUT092": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 22.75,
+    "units_med": 28.5,
+    "units_q75": 33.75,
+    "kg_per_unit": 14.015,
+    "m3_per_unit": 0.2293,
+    "usual_vehicle": "VEH056",
+    "orders": 36
+   }
+  },
+  "OUT093": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.459,
+     "3": 0.278,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 1.0,
+    "units_med": 1.0,
+    "units_q75": 1.0,
+    "kg_per_unit": 167.0,
+    "m3_per_unit": 0.556,
+    "usual_vehicle": "VEH060",
+    "orders": 27
+   }
+  },
+  "OUT094": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.378,
+     "3": 0.472,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 7.0,
+    "units_med": 9.0,
+    "units_q75": 9.5,
+    "kg_per_unit": 209.414,
+    "m3_per_unit": 0.6973,
+    "usual_vehicle": "VEH044",
+    "orders": 31
+   }
+  },
+  "OUT095": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.784,
+     "3": 0.806,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 4.0,
+    "units_med": 5.0,
+    "units_q75": 5.0,
+    "kg_per_unit": 211.26,
+    "m3_per_unit": 0.7098,
+    "usual_vehicle": "VEH044",
+    "orders": 58
+   }
+  },
+  "OUT096": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 27.0,
+    "units_med": 31.0,
+    "units_q75": 37.0,
+    "kg_per_unit": 6.771,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH048",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 22.0,
+    "units_med": 25.0,
+    "units_q75": 29.0,
+    "kg_per_unit": 6.739,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH039",
+    "orders": 147
+   }
+  },
+  "OUT097": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 58.0,
+    "units_med": 68.0,
+    "units_q75": 81.0,
+    "kg_per_unit": 6.734,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH048",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 60.0,
+    "units_med": 69.0,
+    "units_q75": 81.0,
+    "kg_per_unit": 6.833,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH039",
+    "orders": 147
+   }
+  },
+  "OUT098": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 53.0,
+    "units_med": 62.0,
+    "units_q75": 72.0,
+    "kg_per_unit": 6.726,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH048",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 47.75,
+    "units_med": 57.0,
+    "units_q75": 67.0,
+    "kg_per_unit": 7.023,
+    "m3_per_unit": 0.0379,
+    "usual_vehicle": "VEH039",
+    "orders": 148
+   }
+  },
+  "OUT099": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 53.0,
+    "units_med": 62.0,
+    "units_q75": 74.0,
+    "kg_per_unit": 6.951,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH048",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 37.0,
+    "units_q75": 42.25,
+    "kg_per_unit": 6.966,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH039",
+    "orders": 148
+   }
+  },
+  "OUT100": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 67.0,
+    "units_med": 77.0,
+    "units_q75": 89.0,
+    "kg_per_unit": 6.96,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH048",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 72.0,
+    "units_med": 83.0,
+    "units_q75": 101.0,
+    "kg_per_unit": 6.928,
+    "m3_per_unit": 0.0377,
+    "usual_vehicle": "VEH039",
+    "orders": 147
+   }
+  },
+  "OUT101": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 44.0,
+    "units_med": 52.0,
+    "units_q75": 60.0,
+    "kg_per_unit": 6.874,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH048",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 50.0,
+    "units_med": 60.0,
+    "units_q75": 74.0,
+    "kg_per_unit": 6.708,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH039",
+    "orders": 148
+   }
+  },
+  "OUT102": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 44.0,
+    "units_med": 52.0,
+    "units_q75": 60.0,
+    "kg_per_unit": 15.04,
+    "m3_per_unit": 0.244,
+    "usual_vehicle": "VEH056",
+    "orders": 37
+   }
+  },
+  "OUT103": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.432,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.622,
+     "6": 0.0
+    },
+    "units_q25": 3.0,
+    "units_med": 3.0,
+    "units_q75": 4.5,
+    "kg_per_unit": 198.6,
+    "m3_per_unit": 0.7083,
+    "usual_vehicle": "VEH056",
+    "orders": 39
+   }
+  },
+  "OUT104": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 40.0,
+    "units_med": 46.0,
+    "units_q75": 53.0,
+    "kg_per_unit": 6.908,
+    "m3_per_unit": 0.0372,
+    "usual_vehicle": "VEH044",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 36.5,
+    "units_q75": 43.0,
+    "kg_per_unit": 6.78,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH040",
+    "orders": 148
+   }
+  },
+  "OUT105": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 41.0,
+    "units_q75": 47.0,
+    "kg_per_unit": 6.883,
+    "m3_per_unit": 0.0375,
+    "usual_vehicle": "VEH044",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 25.0,
+    "units_med": 28.0,
+    "units_q75": 35.0,
+    "kg_per_unit": 6.906,
+    "m3_per_unit": 0.0363,
+    "usual_vehicle": "VEH043",
+    "orders": 148
+   }
+  },
+  "OUT106": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 48.0,
+    "units_med": 55.0,
+    "units_q75": 63.0,
+    "kg_per_unit": 6.844,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH044",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 31.0,
+    "units_med": 37.0,
+    "units_q75": 45.0,
+    "kg_per_unit": 6.819,
+    "m3_per_unit": 0.0369,
+    "usual_vehicle": "VEH043",
+    "orders": 147
+   }
+  },
+  "OUT107": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 52.0,
+    "units_med": 62.0,
+    "units_q75": 72.0,
+    "kg_per_unit": 6.818,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH044",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 41.0,
+    "units_q75": 48.0,
+    "kg_per_unit": 7.004,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH043",
+    "orders": 147
+   }
+  },
+  "OUT108": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 47.0,
+    "units_med": 56.0,
+    "units_q75": 66.0,
+    "kg_per_unit": 6.891,
+    "m3_per_unit": 0.0375,
+    "usual_vehicle": "VEH044",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 35.0,
+    "units_med": 41.0,
+    "units_q75": 49.5,
+    "kg_per_unit": 6.9,
+    "m3_per_unit": 0.0373,
+    "usual_vehicle": "VEH043",
+    "orders": 147
+   }
+  },
+  "OUT109": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 34.0,
+    "units_med": 40.0,
+    "units_q75": 47.0,
+    "kg_per_unit": 15.1,
+    "m3_per_unit": 0.247,
+    "usual_vehicle": "VEH046",
+    "orders": 37
+   }
+  },
+  "OUT110": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 37.0,
+    "units_med": 44.0,
+    "units_q75": 51.0,
+    "kg_per_unit": 6.846,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH056",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 26.0,
+    "units_med": 32.0,
+    "units_q75": 36.0,
+    "kg_per_unit": 6.758,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH041",
+    "orders": 147
+   }
+  },
+  "OUT111": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 25.0,
+    "units_med": 29.0,
+    "units_q75": 34.0,
+    "kg_per_unit": 6.783,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH056",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 17.0,
+    "units_med": 19.0,
+    "units_q75": 22.0,
+    "kg_per_unit": 6.686,
+    "m3_per_unit": 0.0371,
+    "usual_vehicle": "VEH040",
+    "orders": 147
+   }
+  },
+  "OUT112": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 60.0,
+    "units_med": 69.0,
+    "units_q75": 79.0,
+    "kg_per_unit": 6.799,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH046",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 40.75,
+    "units_med": 47.0,
+    "units_q75": 57.0,
+    "kg_per_unit": 6.849,
+    "m3_per_unit": 0.0376,
+    "usual_vehicle": "VEH041",
+    "orders": 148
+   }
+  },
+  "OUT113": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 68.0,
+    "units_med": 79.0,
+    "units_q75": 90.0,
+    "kg_per_unit": 6.883,
+    "m3_per_unit": 0.0368,
+    "usual_vehicle": "VEH046",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 39.0,
+    "units_med": 46.0,
+    "units_q75": 52.5,
+    "kg_per_unit": 6.872,
+    "m3_per_unit": 0.0364,
+    "usual_vehicle": "VEH041",
+    "orders": 147
+   }
+  },
+  "OUT114": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 40.0,
+    "units_med": 51.0,
+    "units_q75": 64.0,
+    "kg_per_unit": 14.93,
+    "m3_per_unit": 0.2414,
+    "usual_vehicle": "VEH046",
+    "orders": 37
+   }
+  },
+  "OUT115": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 0.676,
+     "3": 0.0,
+     "4": 0.514,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 8.0,
+    "units_med": 10.0,
+    "units_q75": 12.25,
+    "kg_per_unit": 223.661,
+    "m3_per_unit": 0.7563,
+    "usual_vehicle": "VEH046",
+    "orders": 44
+   }
+  },
+  "OUT116": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 51.0,
+    "units_med": 60.0,
+    "units_q75": 73.0,
+    "kg_per_unit": 6.784,
+    "m3_per_unit": 0.0365,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 32.0,
+    "units_med": 38.0,
+    "units_q75": 44.0,
+    "kg_per_unit": 6.735,
+    "m3_per_unit": 0.0364,
+    "usual_vehicle": "VEH039",
+    "orders": 148
+   }
+  },
+  "OUT117": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 72.0,
+    "units_med": 84.0,
+    "units_q75": 95.0,
+    "kg_per_unit": 6.732,
+    "m3_per_unit": 0.0366,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 66.0,
+    "units_med": 76.0,
+    "units_q75": 87.0,
+    "kg_per_unit": 7.154,
+    "m3_per_unit": 0.0387,
+    "usual_vehicle": "VEH039",
+    "orders": 147
+   }
+  },
+  "OUT118": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 90.0,
+    "units_med": 110.0,
+    "units_q75": 131.0,
+    "kg_per_unit": 6.851,
+    "m3_per_unit": 0.0367,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 0.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 80.5,
+    "units_med": 92.0,
+    "units_q75": 101.0,
+    "kg_per_unit": 6.741,
+    "m3_per_unit": 0.0363,
+    "usual_vehicle": "VEH039",
+    "orders": 147
+   }
+  },
+  "OUT119": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 1.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 1.0,
+     "6": 0.0
+    },
+    "units_q25": 39.0,
+    "units_med": 45.0,
+    "units_q75": 55.0,
+    "kg_per_unit": 6.807,
+    "m3_per_unit": 0.037,
+    "usual_vehicle": "VEH045",
+    "orders": 221
+   },
+   "chilled": {
+    "p_by_dow": {
+     "0": 1.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 1.0,
+     "4": 1.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 49.0,
+    "units_med": 58.0,
+    "units_q75": 67.0,
+    "kg_per_unit": 6.862,
+    "m3_per_unit": 0.0374,
+    "usual_vehicle": "VEH039",
+    "orders": 147
+   }
+  },
+  "OUT120": {
+   "ambient": {
+    "p_by_dow": {
+     "0": 0.0,
+     "1": 0.0,
+     "2": 1.0,
+     "3": 0.0,
+     "4": 0.0,
+     "5": 0.0,
+     "6": 0.0
+    },
+    "units_q25": 40.0,
+    "units_med": 48.0,
+    "units_q75": 57.0,
+    "kg_per_unit": 14.853,
+    "m3_per_unit": 0.2441,
+    "usual_vehicle": "VEH056",
+    "orders": 37
+   }
+  }
+ }
+}

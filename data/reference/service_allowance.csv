@@ -1,0 +1,10 @@
+brand,dock_type,service_allowance_min
+Fresh,rear_dock,15
+Fresh,street,16
+Fresh,mall_bay,18
+Style,rear_dock,38
+Style,street,46
+Style,mall_bay,59
+Tech,rear_dock,43
+Tech,street,55
+Tech,mall_bay,55
