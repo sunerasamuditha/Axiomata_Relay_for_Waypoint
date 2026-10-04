@@ -24,6 +24,7 @@ from ..models import (
 from .clock import clock_payload, cutoff_for, now_virtual
 from .eta import RefCache, live_etas
 from .fieldops import DOCK_KINDS
+from .handover import pin_check, store_managers
 from .planning import current_plan
 
 ACTIVE = ("placed", "confirmed", "planned", "deferred", "loading", "loaded", "out", "delivered", "partial", "failed", "received")
@@ -76,7 +77,8 @@ def _proof_view(p: Proof | None, stop: Stop | None) -> dict | None:
     return {
         "receiver": p.receiver_name,
         "photo": media_url(p.photo_media_id),
-        "signature": media_url(p.signature_media_id),
+        "signature": media_url(p.signature_media_id),  # proofs from builds before the PIN handover
+        "pin_verified": p.pin_verified,
         "at": iso(p.captured_at),
         "note": p.note,
         "simulated": p.simulated,
@@ -556,6 +558,7 @@ def driver_run(db: Session, ws: Workspace, user: User) -> dict:
     proofs = {p.stop_id: p for p in db.query(Proof).filter(Proof.stop_id.in_([s.id for t in trips for s in t.stops]))} if trips else {}
     issues = db.query(Issue).filter(Issue.trip_id.in_([t.id for t in trips])).all() if trips else []
     by_line = {i.line_id: i for i in issues if i.line_id}
+    managers = store_managers(db) if trips else {}
     out_trips = []
     for t in trips:
         etas = live_etas(t, now)
@@ -567,6 +570,7 @@ def driver_run(db: Session, ws: Workspace, user: User) -> dict:
             if visits and visits[-1]["outlet"] == o.outlet_id:
                 vv = visits[-1]
             else:
+                mgr = managers.get(o.outlet_id)
                 vv = {
                     "visit_id": s.id,
                     "stop_ids": [],
@@ -586,6 +590,10 @@ def driver_run(db: Session, ws: Workspace, user: User) -> dict:
                     "status": s.status,
                     "orders": [],
                     "contact": ou.manager,
+                    # the store manager confirms the handover with their PIN; the phone checks it
+                    # offline against this one-way value (never the PIN itself)
+                    "pin_required": mgr is not None,
+                    "pin_check": pin_check(s.id, mgr.delivery_pin) if mgr and mgr.delivery_pin else None,
                     "arrived_at": iso(s.arrived_at),
                     "completed_at": iso(s.completed_at),
                     "proof": _proof_view(proofs.get(s.id), s),
@@ -770,6 +778,18 @@ def store_order_view(db: Session, ws: Workspace, o: Order, now: datetime) -> dic
             for i in shorts
         ],
         "lines": _lines(o),
+    }
+
+
+def store_profile(db: Session, user: User) -> dict:
+    """The store manager's own account: the only response that carries their delivery PIN."""
+    ou = RefCache.load(db).outlets.get(user.outlet_id or "")
+    return {
+        "name": user.name,
+        "email": user.email,
+        "title": user.title,
+        "outlet": {"id": user.outlet_id, "name": ou.name if ou else ""},
+        "delivery_pin": user.delivery_pin,
     }
 
 

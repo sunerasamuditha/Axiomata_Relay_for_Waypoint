@@ -1,9 +1,9 @@
 """The judge walkthrough, end to end, through the HTTP API (needs Postgres; see conftest.py).
 
 Store orders -> dispatcher closes and plans -> lever -> publish -> dock loads, flags a shortfall,
-dispatcher decides, dock releases -> driver runs online and offline (idempotent sync), goes dark,
-a move is queued and then cancelled because the delivery happened first -> store confirms receipt
-with an issue that reaches dispatch.
+dispatcher decides, dock releases -> driver runs online and offline (idempotent sync), Fathima
+confirms her handover with her PIN, the van goes dark, a move is queued and then cancelled because
+the delivery happened first -> store confirms receipt with an issue that reaches dispatch.
 """
 
 from __future__ import annotations
@@ -107,19 +107,28 @@ def test_full_walkthrough(client, sandbox_code, db_session):
     assert r.status_code == 200, r.text
 
     # 5. driver: start, first visit online, the rest offline with device times
+    from relay_api.domain.handover import pin_proof
+    from relay_api.seed import STORE_PINS
+
     login(client, "sunil@waypoint.lk", code)
     run = client.get("/api/driver/run").json()
     t = run["trips"][0]
     assert t["status"] == "loaded"
     visits = t["visits"]
     first, rest = visits[0], visits[1:]
+    fathima = next(v for v in visits if v["outlet"] == "OUT105")
+    assert fathima["pin_required"] and fathima["pin_check"]
+
+    def handover(v):
+        """Fathima types her PIN on the phone, wherever her store falls on the run; other stores give a name."""
+        if v["outlet"] == "OUT105":
+            return {"visit_id": v["visit_id"], "pin_proof": pin_proof(v["visit_id"], STORE_PINS["fathima@waypoint.lk"])}
+        return {"receiver": "Staff"}
+
     batch = [
         ev("run.start", {"trip_id": t["id"]}),
         ev("stop.arrive", {"stop_ids": first["stop_ids"]}),
-        ev(
-            "stop.complete",
-            {"stop_ids": first["stop_ids"], "outcome": "partial", "receiver": "Fathima Rizwan", "photo": PNG, "signature": PNG},
-        ),
+        ev("stop.complete", {"stop_ids": first["stop_ids"], "outcome": "partial", "photo": PNG, **handover(first)}),
     ]
     r = client.post("/api/sync", json={"device_id": "test", "events": batch}).json()
     assert [x["status"] for x in r["results"]] == ["applied"] * 3, r
@@ -166,7 +175,7 @@ def test_full_walkthrough(client, sandbox_code, db_session):
         sent[v["visit_id"]] = at
         offline += [
             ev("stop.arrive", {"stop_ids": v["stop_ids"]}, at, True),
-            ev("stop.complete", {"stop_ids": v["stop_ids"], "outcome": "delivered", "receiver": "Staff"}, at, True),
+            ev("stop.complete", {"stop_ids": v["stop_ids"], "outcome": "delivered", **handover(v)}, at, True),
         ]
     r = client.post("/api/sync", json={"device_id": "test", "events": offline}).json()
     assert all(x["status"] == "applied" for x in r["results"]), r
@@ -189,6 +198,8 @@ def test_full_walkthrough(client, sandbox_code, db_session):
     login(client, "fathima@waypoint.lk", code)
     home = client.get("/api/store/home").json()
     mine = next(o for o in home["deliveries"] if o["status"] in ("partial", "delivered") and o["vehicle"] == "VEH057")
+    # confirmed with her PIN at the door, so the receiver is the store manager herself
+    assert mine["proof"]["pin_verified"] is True
     assert mine["proof"]["receiver"] == "Fathima Rizwan"
     line = mine["lines"][0]
     r = client.post(

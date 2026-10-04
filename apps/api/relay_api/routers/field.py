@@ -10,7 +10,7 @@ import re
 from datetime import datetime
 from typing import Any
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Response
 from pydantic import BaseModel, Field
 from sqlalchemy.exc import IntegrityError
 
@@ -19,7 +19,7 @@ from ..domain import fieldops
 from ..domain.clock import clock_payload, now_virtual
 from ..domain.events import post_notice, record
 from ..domain.ordering import OrderingError, catalog_for, submit_basket
-from ..domain.views import dock_queue, dock_trip, driver_run, store_home, store_order_view
+from ..domain.views import dock_queue, dock_trip, driver_run, store_home, store_order_view, store_profile
 from ..models import Event, Issue, Notice, Order, OrderLine, Trip
 
 log = logging.getLogger("relay.sync")
@@ -213,6 +213,13 @@ def s_home(ctx: Ctx = Depends(store)) -> dict:
     return store_home(ctx.db, ctx.ws, ctx.user)
 
 
+@router.get("/store/profile")
+def s_profile(response: Response, ctx: Ctx = Depends(store)) -> dict:
+    """The signed-in store manager's profile, with their delivery PIN: the only place it leaves the server."""
+    response.headers["Cache-Control"] = "no-store"
+    return store_profile(ctx.db, ctx.user)
+
+
 @router.get("/store/catalog")
 def s_catalog(ctx: Ctx = Depends(store)) -> dict:
     return catalog_for(ctx.db, ctx.ws, ctx.user.outlet_id)
@@ -312,10 +319,12 @@ HANDLERS = {
         p.get("lines", []),
         p.get("receiver", ""),
         p.get("photo"),
-        p.get("signature"),
+        p.get("signature"),  # records queued by builds before the PIN handover still sync
         p.get("note", ""),
         e.at,
         e.offline,
+        visit_id=p.get("visit_id"),
+        pin_proof=p.get("pin_proof"),
     ),
     "report": lambda db, ws, u, p, e: fieldops.report_problem(
         db, ws, u, int(p["trip_id"]), p.get("stop_id"), p.get("kind", "other"), p.get("note", ""), p.get("photo"), e.at, e.offline

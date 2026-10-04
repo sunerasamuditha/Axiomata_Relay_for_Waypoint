@@ -23,6 +23,7 @@ from ..models import DeviceSeen, Issue, Media, Order, OrderLine, PendingMove, Pr
 from .clock import advance_to, now_virtual, utcnow
 from .eta import RefCache
 from .events import notify, post_notice, record, resolve_notices
+from .handover import store_manager_for, verify
 
 
 class FieldError(Exception):
@@ -523,9 +524,16 @@ def complete(
     at: datetime | None,
     offline: bool = False,
     client_event_id: str | None = None,
+    *,
+    visit_id: int | None = None,
+    pin_proof: str | None = None,
 ) -> dict:
     """Record a delivery. If a dispatcher queued a move for one of these stops while the phone was
-    dark, the delivery wins and the move is cancelled."""
+    dark, the delivery wins and the move is cancelled.
+
+    Where the store manager has a delivery PIN, the phone sends `pin_proof` once they typed it
+    (domain/handover.py). A missing or wrong proof never blocks the delivery (physical facts win): it
+    is recorded unconfirmed and the store and dispatch are told."""
     if outcome not in ("delivered", "partial", "failed"):
         raise FieldError("Unknown outcome.")
     stops = _stops_for(db, user, stop_ids)
@@ -538,6 +546,14 @@ def complete(
     when = _when(ws, at, floor)
     pmid = save_media(db, ws, photo)
     smid = save_media(db, ws, signature)
+    # a refused or closed stop has no handover, so no PIN is expected
+    manager = store_manager_for(db, stops[0].order.outlet_id) if outcome != "failed" else None
+    try:
+        vid = int(visit_id) if visit_id is not None else None
+    except (TypeError, ValueError):
+        vid = None
+    pin_ok = bool(manager and manager.delivery_pin and vid in stop_ids and verify(vid, manager.delivery_pin, pin_proof))
+    received_by = ((manager.name if manager and pin_ok else receiver) or "")[:60]
     qty = {int(x["line_id"]): int(x.get("delivered_qty", 0)) for x in lines or []}
     conflicts = []
     for s in stops:
@@ -561,11 +577,12 @@ def complete(
             Proof(
                 workspace_id=ws.id,
                 stop_id=s.id,
-                receiver_name=receiver or "",
+                receiver_name=received_by,
                 photo_media_id=pmid,
                 signature_media_id=smid,
                 note=note or "",
                 captured_at=when,
+                pin_verified=pin_ok,
             )
         )
         for pm in db.query(PendingMove).filter_by(order_id=s.order_id, status="queued"):
@@ -592,12 +609,19 @@ def complete(
         topics=[f"vehicle:{trip.vehicle_id}", f"outlet:{oid}", "plan"],
     )
     late = any(s.completed_at and s.arrived_at and s.arrived_at > _close(s) for s in stops)
+    delivered = f"{user.short_name} delivered at {when:%H:%M}" + (" while out of coverage" if offline else "")
+    if pin_ok:
+        store_body = f"{delivered}. Please confirm what arrived. Confirmed with your PIN."
+    elif manager:
+        store_body = f"{delivered}. It was recorded without your PIN, so please confirm what arrived."
+    else:
+        store_body = f"{delivered}. Please confirm what arrived."
     post_notice(
         db,
         ws,
         f"outlet:{oid}",
         "Delivered" if outcome == "delivered" else ("Delivered, partial" if outcome == "partial" else "Delivery failed"),
-        f"{user.short_name} delivered at {when:%H:%M}" + (" while out of coverage" if offline else "") + ". Please confirm what arrived.",
+        store_body,
         kind="green" if outcome == "delivered" else "amber",
         icon="check",
         key=f"run:{trip.id}",
@@ -610,6 +634,21 @@ def complete(
             "dispatch",
             f"{name} · {outcome}" + (" · late" if late else ""),
             note or f"{trip.vehicle_id} recorded it at {when:%H:%M}.",
+            kind="amber",
+            icon="alert",
+            actions=[["Locate", f"locate:{trip.code}"]],
+        )
+    if manager and not pin_ok:
+        post_notice(
+            db,
+            ws,
+            "dispatch",
+            f"{name} · delivered without the store's PIN",
+            f"{user.short_name} recorded it at {when:%H:%M}"
+            + (" while out of coverage" if offline else "")
+            + f" without {manager.short_name}'s PIN"
+            + (f" (received by {received_by})" if received_by else "")
+            + f". {manager.short_name} has been asked to confirm what arrived.",
             kind="amber",
             icon="alert",
             actions=[["Locate", f"locate:{trip.code}"]],

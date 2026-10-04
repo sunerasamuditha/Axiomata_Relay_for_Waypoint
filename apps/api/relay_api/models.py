@@ -80,6 +80,10 @@ class User(Base):
     vehicle_id: Mapped[str | None] = mapped_column(String(10), nullable=True)
     outlet_id: Mapped[str | None] = mapped_column(String(10), nullable=True)
     lang: Mapped[str] = mapped_column(String(4), default="en")
+    # store managers only: the fixed code they type on the driver's phone to confirm a delivery
+    # (domain/handover.py). Retrievable because its owner reads it in Profile: a handover code, not a
+    # login credential. Never log it; only the owner's own profile returns it.
+    delivery_pin: Mapped[str | None] = mapped_column(String(6), nullable=True)
 
 
 # ------------------------------------------------------------------------------------------------
@@ -413,6 +417,7 @@ class Proof(Base):
     note: Mapped[str] = mapped_column(String(200), default="")
     captured_at: Mapped[datetime] = mapped_column(DateTime)
     simulated: Mapped[bool] = mapped_column(Boolean, default=False)
+    pin_verified: Mapped[bool] = mapped_column(Boolean, default=False)  # the store manager typed their PIN at the door
 
 
 class Media(Base):

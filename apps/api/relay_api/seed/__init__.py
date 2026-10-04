@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import csv
 import random
+import re
 import secrets
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -132,6 +133,10 @@ USERS = [
     ),
 ]
 
+# Each store manager's fixed delivery PIN (4 to 6 digits): typed on the driver's phone at the door to
+# confirm the handover (domain/handover.py). Fathima sees hers in Profile.
+STORE_PINS = {"fathima@waypoint.lk": "4826"}
+
 
 def data_dir() -> Path:
     return Path(get_settings().data_dir)
@@ -245,8 +250,13 @@ def seed_users(db: Session) -> int:
     pw = hash_password(get_settings().demo_password)
     n = 0
     for email, name, short, ini, col, role, title, depot, dock, vehicle, outlet in USERS:
+        pin = STORE_PINS.get(email) if role == "store" else None
+        if pin and not re.fullmatch(r"[0-9]{4,6}", pin):
+            raise ValueError(f"The delivery PIN for {email} must be 4 to 6 digits.")
         u = db.scalar(select(User).where(User.email == email))
         if u:
+            if pin and not u.delivery_pin:
+                u.delivery_pin = pin  # an account seeded before PINs existed gets its PIN on the next start
             continue
         db.add(
             User(
@@ -262,6 +272,7 @@ def seed_users(db: Session) -> int:
                 dock=dock,
                 vehicle_id=vehicle,
                 outlet_id=outlet,
+                delivery_pin=pin,
             )
         )
         n += 1
