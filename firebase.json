@@ -1,0 +1,13 @@
+{
+  "hosting": {
+    "rewrites": [
+      {
+        "source": "**",
+        "run": {
+          "serviceId": "relay",
+          "region": "asia-south1"
+        }
+      }
+    ]
+  }
+}
