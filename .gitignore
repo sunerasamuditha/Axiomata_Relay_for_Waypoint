@@ -1,7 +1,3 @@
-# ---------------------------------------------------------------------------------------------
-# Competition data: the dataset terms forbid publishing it. Only the six small reference files in
-# data/reference/ are committed (the seed needs them). Everything else stays on your machine.
-# ---------------------------------------------------------------------------------------------
 # data/private/
 # data/**/*.csv
 !data/reference/*.csv
