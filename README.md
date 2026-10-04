@@ -43,8 +43,8 @@ signal in the hills, a damaged case at the store.
 |---|---|
 | **Dispatcher** (`/dispatch`) | Watch orders arrive until the cutoff. **Close orders and plan**: the CP-SAT engine plans both depots in seconds under every rule. See every trip on a zoomable canvas (depots, trips, stops, Window Bars, risk). Open the **deferral lever** to compare *Max throughput*, *Balanced* and *Fairness first*; every deferred order is explained as **unavoidable** or **a choice**, with its cost. Drag an order to another trip (the server checks it and refuses with a sentence if it breaks a rule). Decide shortfalls flagged at the dock. See vans with **No signal**, their estimated position, and queue changes for them. Read the 10-week cold-capacity outlook. Demo controls: virtual clock, reset, private sandboxes. Light and dark themes. |
 | **Loader** (`/dock`) | The dock's queue of trucks. For each truck, the load list in **reverse stop order** (load first what is delivered last) with a load map. Tick lines, **flag** a line as missing, damaged or wrong (the release locks until the dispatcher decides), see plan changes as they happen ("take it off the truck"), then **release** with temperature, seal number, doors check and a swipe. Works offline on the shared tablet. |
-| **Driver** (`/driver`) | The run, stop by stop: next stop with its window and ETA, swipe on arrival, unload checklist with known shortfalls pre-marked, outcome (delivered, partial, failed), proof (photo, receiver, signature), problem reports. **Everything works without signal**: records wait in the phone's outbox and sync with their original times. English, Sinhala and Tamil; light and dark. |
-| **Store manager** (`/store`) | Today's deliveries with the Window Bar and expected arrival, the cutoff countdown, ordering (pre-filled from the standing order, chilled and ambient), tracking (Ordered → Planned → Loaded → On road → Delivered → Received, "estimated" while the van is dark), proof of delivery, and **confirm receipt** with per-line issues that reach dispatch at once. |
+| **Driver** (`/driver`) | The run, stop by stop: next stop with its window and ETA, swipe on arrival, a read-only delivery receipt with known shortfalls marked (the dock counts out, the store counts in), outcome (delivered, refused, store closed), proof (a photo and the store manager's delivery PIN, typed on the driver's phone), problem reports. **Everything works without signal**: records wait in the phone's outbox and sync with their original times. English, Sinhala and Tamil; light and dark. |
+| **Store manager** (`/store`) | Today's deliveries with the Window Bar and expected arrival, the cutoff countdown, ordering (pre-filled from the standing order, chilled and ambient), tracking (Ordered → Planned → Loaded → On road → Delivered → Received, "estimated" while the van is dark), proof of delivery, **confirm receipt** with per-line issues that reach dispatch at once, and a Profile page with the manager's delivery PIN. |
 
 Every change reaches the faces it affects within a couple of seconds (Postgres `LISTEN/NOTIFY` → Server-Sent
 Events → refetch).
@@ -79,8 +79,10 @@ Tuesday 29 September at 15:20, forty minutes before Wednesday's ordering cutoff,
 7. **Release.** Back on the loader: **Got it**, finish the lines (**All N lines are on**), then **Check and
    release**: seal number, doors closed, and **Swipe to release VEH057**.
 8. **Driver on the road.** Sign in as **Sunil** (driver) on a phone. **Start run**, then at the first stop
-   **Swipe when you arrive**, **Next: proof of delivery**, take a photo (or **No camera? Use a sample photo**),
-   sign, and **Swipe to complete stop**.
+   **Swipe when you arrive**. The delivery receipt shows what the dock loaded (the driver no longer counts). Then
+   **Next: proof of delivery** and take a photo (or **No camera? Use a sample photo**). At Fathima's store, hand
+   the phone to her: she types her delivery PIN into the hidden field and taps **Confirm PIN** (her demo PIN is
+   **4826**, and she can see it in **Profile**). Then **Swipe to complete stop**.
 9. **Dark corridor.** On the driver: **Me → Test offline mode** (or switch the phone to airplane mode). Deliver the
    next stop: it is saved on the phone and the banner says so. After about 45 seconds the dispatcher's trip shows
    **No signal** with an estimated position. On the dispatcher, search `VEH057`, open one of its remaining stops
@@ -88,8 +90,9 @@ Tuesday 29 September at 15:20, forty minutes before Wednesday's ordering cutoff,
 10. **Back online.** Finish the remaining stops offline, then turn **Test offline mode** off. The **Sync** tab shows
     every record sent with the time it happened. The dispatcher sees **Conflict resolved: delivery kept**: the
     delivery made offline wins over the queued move, and the other van is told to skip it.
-11. **Store confirms receipt.** On Fathima's *Today*, **Confirm receipt**, mark one case **Damaged** and set the
-    received quantity, then **Confirm and report 1 issue**. The dispatcher's feed shows the receipt issue at once.
+11. **Store confirms receipt.** On Fathima's *Today*, the delivery's proof carries the **Confirmed with your PIN**
+    badge (open **Track**). **Confirm receipt**, mark one case **Damaged** and set the received quantity, then
+    **Confirm and report 1 issue**. The dispatcher's feed shows the receipt issue at once.
 12. **Outlook.** On the dispatcher, open **Outlook** for the 10-week cold-capacity forecast and the weeks short of
     reefer space.
 
@@ -154,9 +157,9 @@ docs            architecture, engine, offline sync, data model, setup, deploymen
 - **Design:** [docs/DESIGN_DEPARTURES.md](docs/DESIGN_DEPARTURES.md): where the build differs from our Figma and why.
 - **AI use:** [docs/AI_DISCLOSURE.md](docs/AI_DISCLOSURE.md).
 
-**Quality:** Ruff, ESLint, Prettier and strict TypeScript; 30 Python tests (engine rules and feasibility, the full
-walkthrough over HTTP against real Postgres, idempotent offline sync with device times, security and scopes,
-ordering cutoff); an engine check that validates the demo day under every policy; Playwright tests across all four
+**Quality:** Ruff, ESLint, Prettier and strict TypeScript; 34 Python tests (engine rules and feasibility, the full
+walkthrough over HTTP against real Postgres, idempotent offline sync with device times, the store-PIN handover,
+security and scopes, ordering cutoff); an engine check that validates the demo day under every policy; Playwright tests across all four
 roles; and a CI job that runs `docker compose up` from a clean checkout. All of it runs on every push
 (`.github/workflows/ci.yml`).
 
