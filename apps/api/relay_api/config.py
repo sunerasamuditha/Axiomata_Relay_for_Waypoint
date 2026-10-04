@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     env: str = "development"
     database_url: str = "postgresql+psycopg://relay:relay@localhost:5433/relay"
     secret_key: str = "dev-only-secret-change-me-0123456789abcdef"
-    cookie_name: str = "relay_session"
+    cookie_name: str = "__session"
     cookie_secure: bool = False
     session_hours: int = 12
 
