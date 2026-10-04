@@ -11,7 +11,7 @@ Built for the Rootcode Tech-Triathlon 2026 hackathon by TeamName.
 
 | | |
 |---|---|
-| **Live app** | _https://… (Cloud Run URL, added at submission)_ |
+| **Live app** | _wprelay.app_ |
 | **Demo video** | _YouTube link, added at submission_ |
 | **Sign in** | any account below, password `relay2026` |
 | **Run it yourself** | `docker compose up --build`, then http://localhost:8080 |
