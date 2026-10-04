@@ -58,18 +58,17 @@ export async function swipe(page: Page): Promise<void> {
   await page.keyboard.press("Enter");
 }
 
-/** Driver: arrive, use a sample proof photo, sign, swipe to complete. */
-export async function deliverNextStop(page: Page): Promise<void> {
+/** Driver: arrive, use a sample proof photo, hand over for the store manager's PIN where asked, swipe to complete. */
+export async function deliverNextStop(page: Page, pin?: string): Promise<void> {
   await swipe(page); // "Swipe when you arrive"
   await page.getByText("Next: proof of delivery").click();
   await page.locator(".upl").click(); // sample photo (no camera in a headless browser)
-  const pad = page.locator("canvas.sigpad");
-  const box = await pad.boundingBox();
-  if (box) {
-    await page.mouse.move(box.x + 30, box.y + 100);
-    await page.mouse.down();
-    for (let i = 0; i < 12; i++) await page.mouse.move(box.x + 30 + i * 20, box.y + 60 + (i % 2) * 60);
-    await page.mouse.up();
+  const field = page.locator("#pin");
+  if (await field.isVisible()) {
+    if (!pin) throw new Error("This stop asks for the store manager's delivery PIN, but none was passed to deliverNextStop().");
+    await field.fill(pin);
+    await page.getByRole("button", { name: "Confirm PIN" }).click();
+    await expect(page.getByText("Confirmed by")).toBeVisible();
   }
   await swipe(page); // "Swipe to complete"
   await page.waitForTimeout(800);

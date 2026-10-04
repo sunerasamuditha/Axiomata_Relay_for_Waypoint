@@ -1043,7 +1043,7 @@ function orderInspector(o) {
     .join("")}<div><span>Total</span><b>${f1(o.m3)} m³ · ${kg(o.kg)} kg</b></div></div></div>`;
   if (o.proof) {
     const p = o.proof;
-    h += `<div class="sec"><div class="eyebrow">Proof of delivery</div><div class="proofbox">${p.photo ? `<div class="pimg"><img src="${p.photo}" alt="Delivery photo"></div>` : ""}${p.signature ? `<div class="pimg" style="background:#fff"><img src="${p.signature}" alt="Receiver signature"></div>` : ""}</div><p class="meta">Received by ${esc(p.receiver || "store staff")} · recorded ${fmt(M(p.at))}${p.offline ? " offline" : ""}${p.synced_at ? " · synced" : ""}</p></div>`;
+    h += `<div class="sec"><div class="eyebrow">Proof of delivery</div><div class="proofbox">${p.photo ? `<div class="pimg"><img src="${p.photo}" alt="Delivery photo"></div>` : ""}${p.signature ? `<div class="pimg" style="background:#fff"><img src="${p.signature}" alt="Receiver signature"></div>` : ""}</div><p class="meta">Received by ${esc(p.receiver || "store staff")} · recorded ${fmt(M(p.at))}${p.offline ? " offline" : ""}${p.synced_at ? " · synced" : ""}${p.pin_verified ? " · PIN confirmed" : ""}</p></div>`;
   }
   if (o.receipt) h += `<div class="sec"><div class="eyebrow">Store receipt</div><p class="meta" style="margin:0">${esc(o.receipt.by)} confirmed at ${fmt(M(o.receipt.at))} · ${esc(o.receipt.status)}</p></div>`;
   if (!o.deferred && !o.delivered && t && !["out", "done"].includes(t.status))

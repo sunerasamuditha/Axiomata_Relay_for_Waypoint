@@ -350,7 +350,12 @@ html[data-theme="dark"] .offbanner {
   border: 1px solid var(--line);
 }
 
-/* arrived */
+/* arrived: the delivery receipt is read-only (counted at the dock, confirmed by the store) */
+.receipt-sub {
+  font-size: 13px;
+  color: var(--ink-3);
+  margin: 2px 0 4px;
+}
 .lineitem {
   display: flex;
   align-items: center;
@@ -410,6 +415,9 @@ html[data-theme="dark"] .offbanner {
   background: var(--ember-1);
   color: var(--ember-7);
 }
+.outcomes button:first-child {
+  grid-column: 1 / -1; /* Delivered across the top; Refused and Store closed below */
+}
 
 /* proof */
 .photo-drv {
@@ -428,14 +436,60 @@ html[data-theme="dark"] .offbanner {
 .upl .ic {
   font-size: 16px;
 }
-.sigwrap .sigpad {
-  background: #fff;
-  height: 170px;
-}
-.sighint {
-  font-size: 12.5px;
+/* store-manager PIN handover: the phone is handed over and the PIN never shows */
+.pincard .pinsub {
+  font-size: 13.5px;
   color: var(--ink-3);
-  margin-top: 6px;
+  margin: 4px 0 14px;
+}
+.pinrow {
+  display: flex;
+  gap: 8px;
+}
+.pinrow .input.pin {
+  flex: 1;
+  min-width: 0;
+  font-size: 24px;
+  letter-spacing: 0.25em;
+  text-align: center;
+}
+.pinrow .btn {
+  flex: none;
+  max-width: 48%; /* a long label wraps (si, ta) instead of squeezing the PIN field */
+  height: 54px;
+  padding: 0 14px;
+  white-space: normal;
+  line-height: 1.15;
+  text-align: center;
+}
+.pinbad {
+  margin-top: 8px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ember-7);
+}
+.pinskip {
+  margin-top: 10px;
+  padding: 4px 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue-7);
+  text-align: left;
+}
+.pincard.ok {
+  background: var(--green-1);
+  border-color: transparent;
+}
+.pinok {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: var(--green-7);
+}
+.pinok .ic {
+  flex: none;
+  font-size: 22px;
 }
 .fine {
   font-size: 12.5px;

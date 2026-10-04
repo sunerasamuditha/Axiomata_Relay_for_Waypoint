@@ -17,12 +17,13 @@ import { api, errorText, get, post } from "../../lib/api";
 import { signOut, useMe } from "../../lib/auth";
 import { parseNaive, setClock, useClockState, useVirtualNow, virtualNow } from "../../lib/clock";
 import { dayLabel, f1, hm, kg, sameDayAt } from "../../lib/format";
+import { pinCheck, pinProof } from "../../lib/handover";
 import { useLive, useLiveStatus } from "../../lib/live";
 import { cacheGet, cachePut, type OutboxItem } from "../../lib/offline/db";
 import { clearSynced, flush, onSynced, record, setSimulatedOffline, useConnectivity, useOutbox, usePending, useSyncLoop } from "../../lib/offline/outbox";
 import type { Line, Notice, Run, RunTrip, Visit } from "../../lib/types";
 import { Icon } from "../../ui/Icon";
-import { PhotoInput, SignaturePad, Swipe, ToastProvider, useToast, WindowBar } from "../../ui/kit";
+import { PhotoInput, Swipe, ToastProvider, useToast, WindowBar } from "../../ui/kit";
 import { I18n, LANGS, makeT, useT, type Lang, type T } from "./i18n";
 import "../../ui/ds.css";
 import "./driver.css";
@@ -202,7 +203,8 @@ function overlay(run: Run, items: OutboxItem[], since: number): Run {
         v.proof = {
           receiver: p.receiver ?? "",
           photo: p.photo ?? null,
-          signature: p.signature ?? null,
+          signature: null,
+          pin_verified: !!p.pin_proof,
           at: it.at,
           note: p.note ?? "",
           simulated: false,
@@ -654,7 +656,7 @@ function EnRoute({ run, trip, idx, dark }: { run: Run; trip: RunTrip; idx: numbe
   );
 }
 
-type Sel = "delivered" | "partial" | "refused" | "closed";
+type Sel = "delivered" | "refused" | "closed";
 
 function Arrived({ trip, idx }: { run: Run; trip: RunTrip; idx: number }) {
   const { t } = useT();
@@ -662,40 +664,57 @@ function Arrived({ trip, idx }: { run: Run; trip: RunTrip; idx: number }) {
   const { online } = useConnectivity();
   const v = trip.visits[idx];
   const lines = v.orders.flatMap((o) => o.lines.map((l) => ({ ...l, temp: o.temp })));
-  const sent = (l: Line) => l.loaded_qty ?? l.qty;
-  const [counts, setCounts] = useState<Record<number, number>>(() => Object.fromEntries(lines.map((l) => [l.id, sent(l)])));
-  const anyShort = lines.some((l) => (counts[l.id] ?? 0) < l.qty);
-  const [sel, setSel] = useState<Sel>(anyShort ? "partial" : "delivered");
+  // counted out at the dock: the server delivers what was loaded, and the store counts in on Confirm receipt
+  const loaded = (l: Line) => l.loaded_qty ?? l.qty;
+  const [sel, setSel] = useState<Sel>("delivered");
   const [step, setStep] = useState<"unload" | "proof">("unload");
   const [photo, setPhoto] = useState<string | null>(null);
-  const [sig, setSig] = useState<string | null>(null);
-  const [receiver, setReceiver] = useState(v.contact ? v.contact.split(" ")[0] : "");
+  // with a PIN handover the name is only asked for when the manager is not there, so it starts empty
+  const [receiver, setReceiver] = useState(v.contact && !v.pin_required ? v.contact.split(" ")[0] : "");
   const [reason, setReason] = useState("");
+  // the store manager's PIN lives here only while it is typed; a match keeps just the proof hash
+  const [pin, setPin] = useState("");
+  const [proof, setProof] = useState<string | null>(null);
+  const [wrongPin, setWrongPin] = useState(false);
+  const [misses, setMisses] = useState(0);
+  const [withoutPin, setWithoutPin] = useState(false);
   const failed = sel === "refused" || sel === "closed";
-  const can = failed ? !!photo : !!photo && !!sig;
+  const pinPending = !failed && v.pin_required && !proof && !withoutPin;
+  const can = !!photo && !pinPending;
   const outcomes: [Sel, string, string][] = [
     ["delivered", "check", t("delivered")],
-    ["partial", "box", t("partial")],
     ["refused", "hand", t("refused")],
     ["closed", "door", t("closed")],
   ];
+  const confirmPin = () => {
+    const match = !!v.pin_check && pinCheck(v.visit_id, pin) === v.pin_check;
+    const hash = match ? pinProof(v.visit_id, pin) : null;
+    setPin(""); // the PIN never outlives the tap
+    if (hash) setProof(hash);
+    else {
+      setWrongPin(true);
+      setMisses((n) => n + 1);
+    }
+  };
   const complete = async () => {
-    const outcome = failed ? "failed" : sel;
+    // the status the server derives from what the dock loaded, so the phone's overlay agrees with it
+    const outcome = failed ? "failed" : lines.some((l) => loaded(l) < l.qty) ? "partial" : "delivered";
     const note = sel === "refused" ? `Refused${reason ? `: ${reason}` : ""}` : sel === "closed" ? `Store closed${reason ? `: ${reason}` : ""}` : reason;
     const units = v.orders.reduce((a, o) => a + o.units, 0);
     const serviceMin = Math.min(30, Math.round(8 + units / 8));
+    const sendProof = failed ? null : proof;
     await record(
       "stop.complete",
       {
         stop_ids: v.stop_ids,
+        visit_id: v.visit_id,
         outcome,
-        lines: lines.map((l) => ({ line_id: l.id, delivered_qty: failed ? 0 : (counts[l.id] ?? 0) })),
-        receiver: failed ? "" : receiver.trim(),
+        receiver: failed ? "" : sendProof ? v.contact : receiver.trim(),
         photo,
-        signature: failed ? null : sig,
+        ...(sendProof ? { pin_proof: sendProof } : {}),
         note,
       },
-      `${v.name} · ${outcomes.find((o) => o[0] === sel)![2].toLowerCase()}`,
+      `${v.name} · ${(outcome === "partial" ? t("partial") : outcomes.find((o) => o[0] === sel)![2]).toLowerCase()}`,
       (v.arrived_at ? parseNaive(v.arrived_at) : virtualNow()) + serviceMin * 60000,
     );
     toast(online ? t("savedSent") : t("savedOffline"), "green", "check");
@@ -712,7 +731,7 @@ function Arrived({ trip, idx }: { run: Run; trip: RunTrip; idx: number }) {
               <div className="eyebrow">
                 {t("proof")} · {v.name}
               </div>
-              <h1 style={{ fontSize: 23 }}>{sel === "closed" ? t("photoClosed") : sel === "refused" ? t("photoRefused") : t("photoSig")}</h1>
+              <h1 style={{ fontSize: 23 }}>{sel === "closed" ? t("photoClosed") : sel === "refused" ? t("photoRefused") : t("photoProof")}</h1>
             </div>
           </div>
         </div>
@@ -736,30 +755,78 @@ function Arrived({ trip, idx }: { run: Run; trip: RunTrip; idx: number }) {
             </div>
           ) : (
             <>
-              <div>
-                <label className="flabel" htmlFor="recv">
-                  {t("receivedBy")}
-                </label>
-                <input
-                  id="recv"
-                  className="input text"
-                  value={receiver}
-                  onChange={(e) => setReceiver(e.target.value)}
-                  placeholder={t("receiverPh")}
-                  autoComplete="off"
-                />
-              </div>
-              <div className="sigwrap">
-                <div className="eyebrow" style={{ marginBottom: 8 }}>
-                  {t("signature")}
+              {v.pin_required ? (
+                <div className={`card pincard ${proof ? "ok" : ""}`}>
+                  {proof ? (
+                    <div className="pinok" role="status">
+                      <Icon name="shield" />
+                      <b>{t("pinOk", { name: v.contact || t("theManager") })}</b>
+                    </div>
+                  ) : (
+                    <>
+                      <h3>{t("handTitle", { name: v.contact ? v.contact.split(" ")[0] : t("theManager") })}</h3>
+                      <p className="pinsub">{t("handSub")}</p>
+                      <label className="flabel" htmlFor="pin">
+                        {t("pinLabel")}
+                      </label>
+                      <div className="pinrow">
+                        <input
+                          id="pin"
+                          className="input pin"
+                          type="password"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
+                          maxLength={6}
+                          autoComplete="off"
+                          data-lpignore="true"
+                          data-1p-ignore
+                          aria-invalid={wrongPin}
+                          value={pin}
+                          onChange={(e) => {
+                            setPin(e.target.value.replace(/\D/g, "").slice(0, 6));
+                            setWrongPin(false);
+                          }}
+                          onKeyDown={(e) => {
+                            if (e.key === "Enter" && pin.length >= 4) confirmPin();
+                          }}
+                        />
+                        <button className="btn primary" disabled={pin.length < 4} onClick={confirmPin}>
+                          {t("pinConfirm")}
+                        </button>
+                      </div>
+                      {wrongPin ? (
+                        <p className="pinbad" role="alert">
+                          {t("pinBad")}
+                        </p>
+                      ) : null}
+                      {misses >= 3 && !withoutPin ? (
+                        <button className="pinskip" onClick={() => setWithoutPin(true)}>
+                          {t("pinSkip")}
+                        </button>
+                      ) : null}
+                    </>
+                  )}
                 </div>
-                <SignaturePad onChange={setSig} label={t("signHere")} />
-                <p className="sighint">{t("signHere")}</p>
-              </div>
+              ) : null}
+              {!v.pin_required || (withoutPin && !proof) ? (
+                <div>
+                  <label className="flabel" htmlFor="recv">
+                    {t("receivedBy")}
+                  </label>
+                  <input
+                    id="recv"
+                    className="input text"
+                    value={receiver}
+                    onChange={(e) => setReceiver(e.target.value)}
+                    placeholder={t("receiverPh")}
+                    autoComplete="off"
+                  />
+                </div>
+              ) : null}
             </>
           )}
           <div className="swipe-row">
-            <Swipe label={t("swipeComplete")} locked={!can} lockedLabel={!photo ? t("needPhoto") : t("needSig")} onDone={() => void complete()} />
+            <Swipe label={t("swipeComplete")} locked={!can} lockedLabel={!photo ? t("needPhoto") : t("needPin")} onDone={() => void complete()} />
           </div>
           <p className="fine">{online ? t("savedSent") : t("savedOffline")}</p>
         </div>
@@ -779,30 +846,19 @@ function Arrived({ trip, idx }: { run: Run; trip: RunTrip; idx: number }) {
       <OfflineBanner />
       <div className="drv-pad">
         <div className="card">
-          <div className="spread">
-            <h3>{t("unload")}</h3>
-            <span className="muted sm">{t("tapCount")}</span>
-          </div>
+          <h3>{t("receiptTitle")}</h3>
+          <p className="receipt-sub">{t("receiptSub")}</p>
           {lines.map((l) => {
-            const short = l.qty - sent(l);
+            const short = l.qty - loaded(l);
             return (
               <div key={l.id} className="lineitem">
                 <div>
                   <b>{l.name}</b>
-                  <small className={short ? "warn" : ""}>
+                  <small>
                     {t("ordered", { n: l.qty })}
-                    {short ? ` · ${t("shortDock", { n: short })}` : ""}
                     {l.temp === "chilled" ? ` · ${t("chilled")}` : ""}
                   </small>
-                </div>
-                <div className="stepper">
-                  <button onClick={() => setCounts({ ...counts, [l.id]: Math.max(0, (counts[l.id] ?? 0) - 1) })} aria-label="−">
-                    <Icon name="minus" />
-                  </button>
-                  <span>{counts[l.id] ?? 0}</span>
-                  <button onClick={() => setCounts({ ...counts, [l.id]: Math.min(l.qty, (counts[l.id] ?? 0) + 1) })} aria-label="+">
-                    <Icon name="plus" />
-                  </button>
+                  {short > 0 ? <small className="warn">{t("loadedOf", { m: loaded(l), n: l.qty, k: short })}</small> : null}
                 </div>
               </div>
             );

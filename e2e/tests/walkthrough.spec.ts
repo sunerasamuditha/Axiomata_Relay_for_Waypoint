@@ -24,6 +24,8 @@ test("one plan, four faces: the full walkthrough", async ({ browser, baseURL, re
 
   // ── 1. Store manager places an order before the 4 PM cutoff ─────────────────────────────────
   const store = await signIn(browser, base, PEOPLE.store, code, problems);
+  // Fathima's delivery PIN, from her own profile: she types it on the driver's phone at her door
+  const pin = String((await getJson(store, "/api/store/profile")).delivery_pin);
   await test.step("store places an order", async () => {
     await store.locator("a[href='/store/order']").first().click();
     await store.locator(".orow:has-text('Yoghurt') button[aria-label^='More']").click();
@@ -113,10 +115,10 @@ test("one plan, four faces: the full walkthrough", async ({ browser, baseURL, re
 
   // ── 5. Driver: start, deliver with proof ────────────────────────────────────────────────────
   const van = await signIn(browser, base, PEOPLE.driver, code, problems);
-  await test.step("driver starts the run and delivers stop 1 with photo and signature", async () => {
+  await test.step("driver starts the run and delivers stop 1 with a photo and the store manager's PIN", async () => {
     await van.getByRole("button", { name: /Start run/ }).click();
     await expect.poll(async () => (await tripOf(desk, "VEH057"))?.status, slow).toBe("out");
-    await deliverNextStop(van);
+    await deliverNextStop(van, pin);
     await expect
       .poll(async () => {
         const run = await getJson(van, "/api/driver/run");
@@ -130,7 +132,7 @@ test("one plan, four faces: the full walkthrough", async ({ browser, baseURL, re
     await van.locator("a[href='/driver/me']").click();
     await van.locator("button[aria-label='Test offline mode']").click();
     await van.locator("a[href='/driver']").click();
-    await deliverNextStop(van); // recorded on the phone only
+    await deliverNextStop(van, pin); // recorded on the phone only
     await expect.poll(async () => (await tripOf(desk, "VEH057"))?.signal, { timeout: 180_000, intervals: [3_000] }).toBe("dark");
     await expect.poll(() => desk.locator(".tn.dark").count(), slow).toBeGreaterThan(0);
   });
@@ -146,7 +148,7 @@ test("one plan, four faces: the full walkthrough", async ({ browser, baseURL, re
   });
 
   await test.step("back online: every record lands with its own time and physical facts win", async () => {
-    while (await van.getByText("Swipe when you arrive").count()) await deliverNextStop(van);
+    while (await van.getByText("Swipe when you arrive").count()) await deliverNextStop(van, pin);
     await van.locator("a[href='/driver/me']").click();
     await van.locator("button[aria-label='Test offline mode']").click(); // signal is back
     await van.locator("a[href='/driver/sync']").click();

@@ -78,7 +78,10 @@ export interface Line {
 export interface Proof {
   receiver: string;
   photo: string | null;
-  signature: string | null;
+  /** only on proofs recorded before the PIN handover replaced the signature */
+  signature?: string | null;
+  /** the store manager typed their delivery PIN on the driver's phone */
+  pin_verified: boolean;
   at: string;
   note: string;
   simulated: boolean;
@@ -235,6 +238,10 @@ export interface Visit {
   status: "pending" | "arrived" | "delivered" | "partial" | "failed";
   orders: RunOrder[];
   contact: string;
+  /** the store manager confirms the handover with their delivery PIN */
+  pin_required: boolean;
+  /** one-way value the phone checks the typed PIN against, offline (lib/handover.ts) */
+  pin_check: string | null;
   arrived_at: string | null;
   completed_at: string | null;
   proof: Proof | null;
@@ -338,6 +345,15 @@ export interface StoreHome {
   upcoming: { date: string; orders: StoreOrder[] }[];
   ordering: { date: string; cutoff: string; open: boolean };
   notices: Notice[];
+}
+
+/** GET /api/store/profile: the only response that carries the manager's delivery PIN. */
+export interface StoreProfile {
+  name: string;
+  email: string;
+  title: string;
+  outlet: { id: string; name: string };
+  delivery_pin: string | null;
 }
 
 export interface Catalog {
