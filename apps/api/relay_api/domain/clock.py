@@ -1,7 +1,7 @@
 """The workspace's virtual clock.
 
 The demo day happens at real times of day (orders close Tuesday 16:00, the hill van leaves at
-03:05), but judges walk through it at their own pace. Each workspace therefore has its own clock:
+03:05), but judges can walk through it at their own pace. Each workspace therefore has its own clock:
 
   * it starts paused at Tuesday 29 September 15:20, forty minutes before the order cutoff
   * people's actions move it forward to the moment they would really happen ("snap forward"):

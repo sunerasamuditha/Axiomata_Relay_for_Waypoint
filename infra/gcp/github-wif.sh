@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-# Optional: let GitHub Actions deploy (.github/workflows/deploy.yml) without any stored key, using
-# Workload Identity Federation. docs/DEPLOY_GCP.md §8 explains each step.
-# Usage: GH_REPO=<github-user>/TeamName_Relay ./infra/gcp/github-wif.sh
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 # shellcheck disable=SC1091

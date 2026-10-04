@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-# One-time Google Cloud setup for Relay: APIs, Cloud SQL, secrets, the runtime service account.
-# Safe to re-run: every step checks whether its resource already exists.
-# Prerequisites: docs/DEPLOY_GCP.md §1–§2 (project created, billing linked, infra/gcp/env.sh written).
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 [ -f infra/gcp/env.sh ] || { echo "Missing infra/gcp/env.sh: cp infra/gcp/env.sh.example infra/gcp/env.sh and edit it."; exit 1; }

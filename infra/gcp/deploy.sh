@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-# Build the root Dockerfile with Cloud Build and deploy it to Cloud Run (docs/DEPLOY_GCP.md §6).
-# Uploads the repo minus .gcloudignore: private CSVs stay on this machine, trained models go up.
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 [ -f infra/gcp/env.sh ] || { echo "Missing infra/gcp/env.sh: see docs/DEPLOY_GCP.md §2"; exit 1; }

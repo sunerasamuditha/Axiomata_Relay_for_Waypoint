@@ -69,3 +69,4 @@ release/
 .claude/
 
 .DS_Store
+.docs/
