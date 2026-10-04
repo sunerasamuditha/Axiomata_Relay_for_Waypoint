@@ -6,7 +6,7 @@ import { signOut, useMe } from "../../lib/auth";
 import { parseNaive, setClock, useVirtualNow } from "../../lib/clock";
 import { dayLabel, dur, hm, minutesBetween, weekday } from "../../lib/format";
 import { useLive, useLiveStatus } from "../../lib/live";
-import type { Catalog, Notice, StoreHome, StoreOrder } from "../../lib/types";
+import type { Catalog, Notice, StoreHome, StoreOrder, StoreProfile } from "../../lib/types";
 import { Icon } from "../../ui/Icon";
 import { Logo, RelaySteps, ToastProvider, useToast, WindowBar } from "../../ui/kit";
 import "../../ui/ds.css";
@@ -30,16 +30,20 @@ export default function StoreApp() {
   );
 }
 
+type Tab = { to: string; icon: string; label: string; end?: boolean; badge?: number };
+
 function Shell() {
   const me = useMe().data!;
   const home = useHome();
   const unread = home.data?.notices.filter((n) => !n.read).length ?? 0;
-  const tabs = [
+  const tabs: Tab[] = [
     { to: "/store", end: true, icon: "home", label: "Today" },
     { to: "/store/order", icon: "plus", label: "Order" },
     { to: "/store/track", icon: "route", label: "Track" },
     { to: "/store/alerts", icon: "bell", label: "Alerts", badge: unread },
   ];
+  // phones have no sidebar: Profile (delivery PIN, sign out) gets its own tab
+  const phoneTabs: Tab[] = [...tabs, { to: "/store/me", icon: "user", label: "Me" }];
   return (
     <div className="st-app">
       <aside className="st-side">
@@ -60,13 +64,15 @@ function Shell() {
           ))}
         </nav>
         <div className="st-me">
-          <span className="av" style={{ background: me.color }}>
-            {me.initials}
-          </span>
-          <div>
-            <b>{me.name}</b>
-            <small>{home.data?.outlet.name ?? ""}</small>
-          </div>
+          <NavLink to="/store/me" className={({ isActive }) => `st-me-link ${isActive ? "on" : ""}`} title="Profile and delivery PIN">
+            <span className="av" style={{ background: me.color }}>
+              {me.initials}
+            </span>
+            <div>
+              <b>{me.name}</b>
+              <small>{home.data?.outlet.name ?? ""}</small>
+            </div>
+          </NavLink>
           <button className="xbtn" onClick={signOut} aria-label="Sign out" title="Sign out">
             <Icon name="logout" />
           </button>
@@ -89,11 +95,12 @@ function Shell() {
             <Route path="track/:id" element={<Track h={home.data} />} />
             <Route path="receipt/:id" element={<Receipt h={home.data} />} />
             <Route path="alerts" element={<Alerts h={home.data} />} />
+            <Route path="me" element={<Profile />} />
           </Routes>
         ) : null}
       </main>
       <nav className="st-tabs" aria-label="Store">
-        {tabs.map((t) => (
+        {phoneTabs.map((t) => (
           <NavLink key={t.to} to={t.to} end={t.end} className={({ isActive }) => (isActive ? "on" : "")}>
             <span className="ti">
               <Icon name={t.icon} />
@@ -292,7 +299,7 @@ function DeliveryCard({ o, now, compact }: { o: StoreOrder; now: number; compact
       {o.proof ? (
         <p className="muted sm" style={{ marginTop: 10 }}>
           Delivered {hm(o.delivered_at)}
-          {o.proof.receiver ? ` · signed by ${o.proof.receiver}` : ""}
+          {o.proof.pin_verified ? " · confirmed with your PIN" : o.proof.receiver ? ` · received by ${o.proof.receiver}` : ""}
           {o.proof.offline ? " · recorded offline" : ""}
         </p>
       ) : o.vehicle && !compact ? (
@@ -563,16 +570,29 @@ function Track({ h }: { h: StoreHome }) {
             ) : null}
             <RelaySteps steps={o.steps} estimate={dark} />
             {o.visit && o.visits ? (
-              <div className="route-line" aria-label={`Stop ${o.visit} of ${o.visits}`}>
-                {Array.from({ length: o.visits }, (_, i) => (
-                  <span
-                    key={i}
-                    className={`rl ${i < (o.visits_done ?? 0) ? "done" : ""} ${i + 1 === o.visit ? "you" : ""} ${dark && i === (o.visits_done ?? 0) ? "est" : ""}`}
-                  >
-                    {i + 1 === o.visit ? "You" : i + 1}
-                  </span>
-                ))}
-              </div>
+              <>
+                <p className="route-cap">
+                  Your store is stop {o.visit} of {o.visits} on {o.vehicle}'s run
+                </p>
+                <div className="route-line" aria-label={`Stop ${o.visit} of ${o.visits}`}>
+                  {Array.from({ length: o.visits }, (_, i) => (
+                    <span
+                      key={i}
+                      className={`rl ${i < (o.visits_done ?? 0) ? "done" : ""} ${i + 1 === o.visit ? "you" : ""} ${dark && i === (o.visits_done ?? 0) ? "est" : ""}`}
+                      aria-current={i + 1 === o.visit ? "step" : undefined}
+                    >
+                      {i + 1 === o.visit ? (
+                        <>
+                          <Icon name="store" />
+                          <span className="sr-only">{i + 1}</span>
+                        </>
+                      ) : (
+                        i + 1
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </>
             ) : null}
             {dark ? (
               <p className="note ember">
@@ -592,10 +612,14 @@ function Track({ h }: { h: StoreHome }) {
                     <Icon name="camera" /> No photo
                   </div>
                 )}
-                {o.proof.signature ? <img className="sig" src={o.proof.signature} alt="Signature" /> : null}
               </div>
+              {o.proof.pin_verified ? (
+                <span className="chip green pinchip">
+                  <Icon name="shield" /> Confirmed with your PIN
+                </span>
+              ) : null}
               <p className="muted sm">
-                Received by {o.proof.receiver || "store staff"} · recorded {hm(o.proof.at)}
+                {o.proof.pin_verified ? "Recorded" : `Received by ${o.proof.receiver || "store staff"} · recorded`} {hm(o.proof.at)}
                 {o.proof.offline ? " offline, synced when the van reconnected" : ""}
               </p>
               {o.status !== "received" ? (
@@ -773,6 +797,80 @@ function Alerts({ h }: { h: StoreHome }) {
       <p className="muted sm" style={{ textAlign: "center", marginTop: 10 }}>
         Times are Waypoint time ({hm(Date.UTC(2026, 0, 1) + (parseNaive(h.clock.now) % 86_400_000))} now).
       </p>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ profile */
+
+function Profile() {
+  const me = useMe().data!;
+  // the PIN is never persisted: gcTime 0 drops it from memory as soon as this page closes
+  const q = useQuery<StoreProfile>({ queryKey: ["store", "profile"], queryFn: () => get("/api/store/profile"), gcTime: 0 });
+  const [show, setShow] = useState(false);
+  const p = q.data;
+  return (
+    <div className="st-page narrow">
+      <header className="ohead">
+        <h1>Profile</h1>
+      </header>
+      {q.error ? (
+        <div className="empty">
+          <Icon name="alert" />
+          <b>Can't load your profile</b>
+          <span>{errorText(q.error)}</span>
+        </div>
+      ) : !p ? (
+        <div className="skeleton" style={{ height: 280 }} />
+      ) : (
+        <div className="stack">
+          <section className="card">
+            <div className="row me-who">
+              <span className="av lg" style={{ background: me.color }}>
+                {me.initials}
+              </span>
+              <div>
+                <h3>{p.name}</h3>
+                <p className="muted sm">{p.title}</p>
+              </div>
+            </div>
+            <dl className="me-facts">
+              <div>
+                <dt>Outlet</dt>
+                <dd>
+                  {p.outlet.name} <span className="mono muted">{p.outlet.id}</span>
+                </dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd>{p.email}</dd>
+              </div>
+            </dl>
+          </section>
+          <section className="card">
+            <div className="spread">
+              <h3>Delivery PIN</h3>
+              {p.delivery_pin ? (
+                <button className="chip" onClick={() => setShow(!show)} aria-pressed={show}>
+                  <Icon name={show ? "eyeOff" : "eye"} /> {show ? "Hide" : "Show"}
+                </button>
+              ) : null}
+            </div>
+            {p.delivery_pin ? (
+              <div className="pin-value num">{show ? p.delivery_pin : "•".repeat(p.delivery_pin.length)}</div>
+            ) : (
+              <p className="pin-none">No delivery PIN is set for your account yet.</p>
+            )}
+            <p className="muted sm">
+              When Relay delivers, the driver hands you their phone. Type this PIN to confirm the delivery reached you. Keep it to yourself: drivers never see
+              it.
+            </p>
+          </section>
+          <button className="btn lg block" onClick={signOut}>
+            <Icon name="logout" /> Sign out
+          </button>
+        </div>
+      )}
     </div>
   );
 }

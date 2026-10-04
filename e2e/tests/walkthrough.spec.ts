@@ -159,6 +159,17 @@ test("one plan, four faces: the full walkthrough", async ({ browser, baseURL, re
   });
 
   // ── 7. Store confirms what arrived ──────────────────────────────────────────────────────────
+  await test.step("the store sees the handover confirmed with its PIN, and its PIN in Profile", async () => {
+    const confirmed = async () => ((await getJson(store, "/api/store/home")).deliveries as any[]).find((o) => o.vehicle === "VEH057" && o.proof?.pin_verified);
+    await expect.poll(async () => !!(await confirmed()), slow).toBe(true);
+    await store.goto(`/store/track/${(await confirmed()).id}`);
+    await expect(store.getByText("Confirmed with your PIN")).toBeVisible({ timeout: 30_000 });
+    await store.goto("/store/me");
+    await expect(store.locator(".pin-value")).toHaveText("•".repeat(pin.length), { timeout: 30_000 }); // masked until asked
+    await store.getByRole("button", { name: "Show" }).click();
+    await expect(store.locator(".pin-value")).toHaveText(pin);
+  });
+
   await test.step("the store confirms receipt and reports a damaged case; dispatch hears it", async () => {
     await store.goto("/store");
     const confirm = store.getByRole("button", { name: /Confirm receipt/ }).first();

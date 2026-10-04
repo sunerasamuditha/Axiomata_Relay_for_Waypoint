@@ -87,9 +87,24 @@
   border-radius: 16px;
   background: var(--paper);
 }
-.st-me > div {
+/* the user card opens Profile; sign out stays a separate button beside it */
+.st-me-link {
   flex: 1;
   min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 12px;
+}
+.st-me-link > div {
+  flex: 1;
+  min-width: 0;
+}
+.st-me-link:hover b,
+.st-me-link.on b {
+  color: var(--blue-7);
 }
 .st-me b {
   display: block;
@@ -128,7 +143,7 @@
   bottom: 0;
   z-index: 30;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   background: var(--surface);
   border-top: 1px solid var(--line);
   padding: 6px 6px calc(6px + env(safe-area-inset-bottom));
@@ -486,11 +501,18 @@ section > .eyebrow.sec:first-child {
   font-size: 12.5px;
   color: var(--ink-3);
 }
+.route-cap {
+  margin-top: 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
 .route-line {
   display: flex;
   gap: 6px;
-  margin-top: 16px;
+  margin-top: 8px;
 }
+/* a picture of the run, not buttons */
 .route-line .rl {
   flex: 1;
   height: 34px;
@@ -502,6 +524,11 @@ section > .eyebrow.sec:first-child {
   font-size: 13px;
   color: var(--ink-3);
   font-variant-numeric: tabular-nums;
+  cursor: default;
+  user-select: none;
+}
+.route-line .rl .ic {
+  font-size: 17px;
 }
 .route-line .rl.done {
   background: var(--blue);
@@ -518,7 +545,7 @@ section > .eyebrow.sec:first-child {
 }
 .proofs {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -530,10 +557,8 @@ section > .eyebrow.sec:first-child {
   background: var(--paper);
   display: block;
 }
-.proofs img.sig {
-  object-fit: contain;
-  background: #fff;
-  border: 1px solid var(--line);
+.pinchip {
+  margin-bottom: 8px;
 }
 .ph-none {
   height: 160px;
@@ -644,6 +669,45 @@ ol.tl li b {
   letter-spacing: 0;
   resize: vertical;
   line-height: 1.45;
+}
+
+/* profile */
+.me-who {
+  gap: 14px;
+}
+.me-facts {
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+}
+.me-facts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line-2);
+}
+.me-facts dt {
+  color: var(--ink-3);
+  font-size: 14px;
+}
+.me-facts dd {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.pin-value {
+  margin: 12px 0 10px;
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+}
+.pin-none {
+  margin: 10px 0;
+  color: var(--ink-3);
 }
 
 @media (min-width: 900px) {
